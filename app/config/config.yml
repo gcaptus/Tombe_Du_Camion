@@ -65,3 +65,9 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# app/config/config.yml
+easy_admin:
+    entities:
+        # change the following to the namespaces of your own entities
+        - AppBundle\Entity\Product
