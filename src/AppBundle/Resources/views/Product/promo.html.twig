@@ -1,7 +1,12 @@
-{% extends "::base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block title %}AppBundle:Product:promo{% endblock %}
 
 {% block body %}
 <h1>Welcome to the Product:promo page</h1>
+{% for products in product %}           
+    <li>{{ products.brand }}</li> 
+    <li> {{ products.name }} </li>
+    {{dump(products)}}           
+{% endfor %}
 {% endblock %}
