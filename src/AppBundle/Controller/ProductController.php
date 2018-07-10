@@ -4,6 +4,16 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class ProductController extends Controller
 {
@@ -52,8 +62,12 @@ class ProductController extends Controller
      */
     public function promoAction()
     {
-        return $this->render('AppBundle:Product:promo.html.twig', array(
-            // ...
+         $repo = $this->getDoctrine()
+        ->getManager()
+        ->getRepository('AppBundle:Product');
+         $product = $repo->findAll();
+        return $this->render('@App/Product/promo.html.twig', array(
+            'product' => $product,
         ));
     }
 
