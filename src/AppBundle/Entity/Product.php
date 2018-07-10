@@ -91,6 +91,13 @@ class Product
      */
     private $size;
 
+    /**
+     * Many Providers have Many Products
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
+     * @ORM\JoinTable(name="products_providers")
+     */
+    private $providers;
+
 
     /**
      * Get id
@@ -340,6 +347,22 @@ class Product
     public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProviders()
+    {
+        return $this->providers;
+    }
+
+    /**
+     * @param mixed $providers
+     */
+    public function setProviders($providers)
+    {
+        $this->providers = $providers;
     }
 }
 
