@@ -69,28 +69,5 @@ class Media
     {
         return $this->url;
     }
-
-    /**
-     * Set products
-     *
-     * @param \AppBundle\Entity\Product $products
-     *
-     * @return Media
-     */
-    public function setProducts(\AppBundle\Entity\Product $products = null)
-    {
-        $this->products = $products;
-
-        return $this;
-    }
-
-    /**
-     * Get products
-     *
-     * @return \AppBundle\Entity\Product
-     */
-    public function getProducts()
-    {
-        return $this->products;
-    }
 }
+
