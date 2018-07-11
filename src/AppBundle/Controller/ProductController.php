@@ -65,9 +65,17 @@ class ProductController extends Controller
          $repo = $this->getDoctrine()
         ->getManager()
         ->getRepository('AppBundle:Product');
-         $product = $repo->findAll();
+         $venteflash = $repo->findBy(
+            array('promo' => 'vente_flash'));
+         $promo = $repo->findBy(
+            array('promo' => 'promo'));
+         $topvente = $repo->findBy(
+            array('promo' => 'top_vente'));
+
         return $this->render('@App/Product/promo.html.twig', array(
-            'product' => $product,
+            'venteflash' => $venteflash,
+            'promo' => $promo,
+            'topvente' => $topvente,
         ));
     }
 
