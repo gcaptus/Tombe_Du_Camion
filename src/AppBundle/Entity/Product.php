@@ -31,63 +31,63 @@ class Product
     /**
      * @var float
      *
-     * @ORM\Column(name="purchase_price", type="float")
+     * @ORM\Column(name="purchase_price", type="float", nullable=true)
      */
     protected $purchasePrice;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="selling_price", type="float")
+     * @ORM\Column(name="selling_price", type="float", nullable=true)
      */
     protected $sellingPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="brand", type="string", length=255)
+     * @ORM\Column(name="brand", type="string", length=255, nullable=true)
      */
     protected $brand;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="register_date", type="datetime")
+     * @ORM\Column(name="register_date", type="datetime", nullable=true)
      */
     protected $registerDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="promo", type="string", length=255)
+     * @ORM\Column(name="promo", type="string", length=255, nullable=true)
      */
     protected $promo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="available", type="string", length=255)
+     * @ORM\Column(name="available", type="string", length=255, nullable=true)
      */
     protected $available;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="quantity", type="integer")
+     * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
     protected $quantity;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="weight", type="float")
+     * @ORM\Column(name="weight", type="float", nullable=true)
      */
     protected $weight;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="size", type="float")
+     * @ORM\Column(name="size", type="float", nullable=true)
      */
     protected $size;
 
