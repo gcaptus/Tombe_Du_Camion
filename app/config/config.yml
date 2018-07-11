@@ -71,8 +71,11 @@ swiftmailer:
 easy_admin:
     entities:
         # change the following to the namespaces of your own entities
-        - AppBundle\Entity\Product
+        - AppBundle\Entity\Cpu
         - AppBundle\Entity\User
+        - AppBundle\Entity\Memory
+        - AppBundle\Entity\MotherBoard
+        - AppBundle\Entity\Media
 
 # app/config/config.yml
 fos_user:
