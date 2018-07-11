@@ -25,35 +25,35 @@ class Cpu extends Product
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=255)
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
      */
     protected $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="socket", type="string", length=255)
+     * @ORM\Column(name="socket", type="string", length=255, nullable=true)
      */
     protected $socket;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="architecture", type="string", length=255)
+     * @ORM\Column(name="architecture", type="string", length=255, nullable=true)
      */
     protected $architecture;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="frequency", type="float")
+     * @ORM\Column(name="frequency", type="float", nullable=true)
      */
     protected $frequency;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryController", type="string", length=255)
+     * @ORM\Column(name="memoryController", type="string", length=255, nullable=true)
      */
     protected $memoryController;
 

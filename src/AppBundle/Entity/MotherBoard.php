@@ -25,56 +25,56 @@ class MotherBoard extends Product
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=255)
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
      */
     protected $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="socket", type="string", length=255)
+     * @ORM\Column(name="socket", type="string", length=255, nullable=true)
      */
     protected $socket;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="chipset", type="string", length=255)
+     * @ORM\Column(name="chipset", type="string", length=255, nullable=true)
      */
     protected $chipset;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryType", type="string", length=255)
+     * @ORM\Column(name="memoryType", type="string", length=255, nullable=true)
      */
     protected $memoryType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryFrequency", type="string", length=255)
+     * @ORM\Column(name="memoryFrequency", type="string", length=255, nullable=true)
      */
     protected $memoryFrequency;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="maxRamPerSlot", type="string", length=255)
+     * @ORM\Column(name="maxRamPerSlot", type="string", length=255, nullable=true)
      */
     protected $maxRamPerSlot;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="graphSlotType", type="string", length=255)
+     * @ORM\Column(name="graphSlotType", type="string", length=255, nullable=true)
      */
     protected $graphSlotType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="chipsetMultiGpu", type="string", length=255)
+     * @ORM\Column(name="chipsetMultiGpu", type="string", length=255, nullable=true)
      */
     protected $chipsetMultiGpu;
 

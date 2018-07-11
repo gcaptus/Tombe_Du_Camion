@@ -25,35 +25,35 @@ class Memory extends Product
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=255)
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
      */
     protected $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryType", type="string", length=255)
+     * @ORM\Column(name="memoryType", type="string", length=255, nullable=true)
      */
     protected $memoryType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryCapacity", type="string", length=255)
+     * @ORM\Column(name="memoryCapacity", type="string", length=255, nullable=true)
      */
     protected $memoryCapacity;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="itemNumber", type="string", length=255)
+     * @ORM\Column(name="itemNumber", type="string", length=255, nullable=true)
      */
     protected $itemNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryPerItem", type="string", length=255)
+     * @ORM\Column(name="memoryPerItem", type="string", length=255, nullable=true)
      */
     protected $memoryPerItem;
 
