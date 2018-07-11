@@ -19,90 +19,90 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var float
      *
      * @ORM\Column(name="purchase_price", type="float")
      */
-    private $purchasePrice;
+    protected $purchasePrice;
 
     /**
      * @var float
      *
      * @ORM\Column(name="selling_price", type="float")
      */
-    private $sellingPrice;
+    protected $sellingPrice;
 
     /**
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255)
      */
-    private $brand;
+    protected $brand;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="register_date", type="datetime")
      */
-    private $registerDate;
+    protected $registerDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="promo", type="string", length=255)
      */
-    private $promo;
+    protected $promo;
 
     /**
      * @var string
      *
      * @ORM\Column(name="available", type="string", length=255)
      */
-    private $available;
+    protected $available;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer")
      */
-    private $quantity;
+    protected $quantity;
 
     /**
      * @var float
      *
      * @ORM\Column(name="weight", type="float")
      */
-    private $weight;
+    protected $weight;
 
     /**
      * @var float
      *
      * @ORM\Column(name="size", type="float")
      */
-    private $size;
+    protected $size;
 
     /**
      * Many Providers have Many Products
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
      * @ORM\JoinTable(name="products_providers")
      */
-    private $providers;
+    protected $providers;
 
     /**
      * One Product have Many Medias
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="products")
      */
-    private $medias;
+    protected $medias;
 
     /**
      * Get id
