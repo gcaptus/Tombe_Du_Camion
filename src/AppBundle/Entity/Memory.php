@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Product as Product;
 
 /**
  * Memory
@@ -20,13 +21,6 @@ class Memory extends Product
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="brand", type="string", length=255)
-     */
-    protected $brand;
 
     /**
      * @var string

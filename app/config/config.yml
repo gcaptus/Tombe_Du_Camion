@@ -75,6 +75,7 @@ easy_admin:
         - AppBundle\Entity\User
         - AppBundle\Entity\Memory
         - AppBundle\Entity\MotherBoard
+        - AppBundle\Entity\Media
 
 # app/config/config.yml
 fos_user:
