@@ -19,49 +19,42 @@ class Memory extends Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="brand", type="string", length=255)
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
      */
-    protected $brand;
+    private $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=255)
+     * @ORM\Column(name="memoryType", type="string", length=255, nullable=true)
      */
-    protected $model;
+    private $memoryType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryType", type="string", length=255)
+     * @ORM\Column(name="capacity", type="string", length=255, nullable=true)
      */
-    protected $memoryType;
+    private $capacity;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="itemNumber", type="integer", nullable=true)
+     */
+    private $itemNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryCapacity", type="string", length=255)
+     * @ORM\Column(name="ramPerItem", type="string", length=255, nullable=true)
      */
-    protected $memoryCapacity;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="itemNumber", type="string", length=255)
-     */
-    protected $itemNumber;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="memoryPerItem", type="string", length=255)
-     */
-    protected $memoryPerItem;
+    private $ramPerItem;
 
 
     /**
@@ -72,30 +65,6 @@ class Memory extends Product
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set brand
-     *
-     * @param string $brand
-     *
-     * @return Memory
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return string
-     */
-    public function getBrand()
-    {
-        return $this->brand;
     }
 
     /**
@@ -147,33 +116,33 @@ class Memory extends Product
     }
 
     /**
-     * Set memoryCapacity
+     * Set capacity
      *
-     * @param string $memoryCapacity
+     * @param string $capacity
      *
      * @return Memory
      */
-    public function setMemoryCapacity($memoryCapacity)
+    public function setCapacity($capacity)
     {
-        $this->memoryCapacity = $memoryCapacity;
+        $this->capacity = $capacity;
 
         return $this;
     }
 
     /**
-     * Get memoryCapacity
+     * Get capacity
      *
      * @return string
      */
-    public function getMemoryCapacity()
+    public function getCapacity()
     {
-        return $this->memoryCapacity;
+        return $this->capacity;
     }
 
     /**
      * Set itemNumber
      *
-     * @param string $itemNumber
+     * @param integer $itemNumber
      *
      * @return Memory
      */
@@ -187,7 +156,7 @@ class Memory extends Product
     /**
      * Get itemNumber
      *
-     * @return string
+     * @return int
      */
     public function getItemNumber()
     {
@@ -195,26 +164,27 @@ class Memory extends Product
     }
 
     /**
-     * Set memoryPerItem
+     * Set ramPerItem
      *
-     * @param string $memoryPerItem
+     * @param string $ramPerItem
      *
      * @return Memory
      */
-    public function setMemoryPerItem($memoryPerItem)
+    public function setRamPerItem($ramPerItem)
     {
-        $this->memoryPerItem = $memoryPerItem;
+        $this->ramPerItem = $ramPerItem;
 
         return $this;
     }
 
     /**
-     * Get memoryPerItem
+     * Get ramPerItem
      *
      * @return string
      */
-    public function getMemoryPerItem()
+    public function getRamPerItem()
     {
-        return $this->memoryPerItem;
+        return $this->ramPerItem;
     }
 }
+

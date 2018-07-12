@@ -19,70 +19,63 @@ class MotherBoard extends Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="brand", type="string", length=255)
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
      */
-    protected $brand;
+    private $model;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="model", type="string", length=255)
+     * @ORM\Column(name="socket", type="string", length=255, nullable=true)
      */
-    protected $model;
+    private $socket;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="socket", type="string", length=255)
+     * @ORM\Column(name="chipset", type="string", length=255, nullable=true)
      */
-    protected $socket;
+    private $chipset;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="chipset", type="string", length=255)
+     * @ORM\Column(name="memoryType", type="string", length=255, nullable=true)
      */
-    protected $chipset;
+    private $memoryType;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="memoryFrequencyMax", type="float", nullable=true)
+     */
+    private $memoryFrequencyMax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryType", type="string", length=255)
+     * @ORM\Column(name="memoryCapacityMax", type="string", length=255, nullable=true)
      */
-    protected $memoryType;
+    private $memoryCapacityMax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryFrequency", type="string", length=255)
+     * @ORM\Column(name="graphicalSlot", type="string", length=255, nullable=true)
      */
-    protected $memoryFrequency;
+    private $graphicalSlot;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="maxRamPerSlot", type="string", length=255)
+     * @ORM\Column(name="multiGPUSlot", type="string", length=255, nullable=true)
      */
-    protected $maxRamPerSlot;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="graphSlotType", type="string", length=255)
-     */
-    protected $graphSlotType;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="chipsetMultiGpu", type="string", length=255)
-     */
-    protected $chipsetMultiGpu;
+    private $multiGPUSlot;
 
 
     /**
@@ -93,30 +86,6 @@ class MotherBoard extends Product
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set brand
-     *
-     * @param string $brand
-     *
-     * @return MotherBoard
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
-     *
-     * @return string
-     */
-    public function getBrand()
-    {
-        return $this->brand;
     }
 
     /**
@@ -216,98 +185,99 @@ class MotherBoard extends Product
     }
 
     /**
-     * Set memoryFrequency
+     * Set memoryFrequencyMax
      *
-     * @param string $memoryFrequency
+     * @param float $memoryFrequencyMax
      *
      * @return MotherBoard
      */
-    public function setMemoryFrequency($memoryFrequency)
+    public function setMemoryFrequencyMax($memoryFrequencyMax)
     {
-        $this->memoryFrequency = $memoryFrequency;
+        $this->memoryFrequencyMax = $memoryFrequencyMax;
 
         return $this;
     }
 
     /**
-     * Get memoryFrequency
+     * Get memoryFrequencyMax
      *
-     * @return string
+     * @return float
      */
-    public function getMemoryFrequency()
+    public function getMemoryFrequencyMax()
     {
-        return $this->memoryFrequency;
+        return $this->memoryFrequencyMax;
     }
 
     /**
-     * Set maxRamPerSlot
+     * Set memoryCapacityMax
      *
-     * @param string $maxRamPerSlot
+     * @param string $memoryCapacityMax
      *
      * @return MotherBoard
      */
-    public function setMaxRamPerSlot($maxRamPerSlot)
+    public function setMemoryCapacityMax($memoryCapacityMax)
     {
-        $this->maxRamPerSlot = $maxRamPerSlot;
+        $this->memoryCapacityMax = $memoryCapacityMax;
 
         return $this;
     }
 
     /**
-     * Get maxRamPerSlot
+     * Get memoryCapacityMax
      *
      * @return string
      */
-    public function getMaxRamPerSlot()
+    public function getMemoryCapacityMax()
     {
-        return $this->maxRamPerSlot;
+        return $this->memoryCapacityMax;
     }
 
     /**
-     * Set graphSlotType
+     * Set graphicalSlot
      *
-     * @param string $graphSlotType
+     * @param string $graphicalSlot
      *
      * @return MotherBoard
      */
-    public function setGraphSlotType($graphSlotType)
+    public function setGraphicalSlot($graphicalSlot)
     {
-        $this->graphSlotType = $graphSlotType;
+        $this->graphicalSlot = $graphicalSlot;
 
         return $this;
     }
 
     /**
-     * Get graphSlotType
+     * Get graphicalSlot
      *
      * @return string
      */
-    public function getGraphSlotType()
+    public function getGraphicalSlot()
     {
-        return $this->graphSlotType;
+        return $this->graphicalSlot;
     }
 
     /**
-     * Set chipsetMultiGpu
+     * Set multiGPUSlot
      *
-     * @param string $chipsetMultiGpu
+     * @param string $multiGPUSlot
      *
      * @return MotherBoard
      */
-    public function setChipsetMultiGpu($chipsetMultiGpu)
+    public function setMultiGPUSlot($multiGPUSlot)
     {
-        $this->chipsetMultiGpu = $chipsetMultiGpu;
+        $this->multiGPUSlot = $multiGPUSlot;
 
         return $this;
     }
 
     /**
-     * Get chipsetMultiGpu
+     * Get multiGPUSlot
      *
      * @return string
      */
-    public function getChipsetMultiGpu()
+    public function getMultiGPUSlot()
     {
-        return $this->chipsetMultiGpu;
+        return $this->multiGPUSlot;
     }
 }
+

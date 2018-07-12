@@ -7,9 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  *
+ * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
 class Product
 {
@@ -66,14 +65,14 @@ class Product
     /**
      * @var array
      *
-     * @ORM\Column(name="promo", type="array", nullable=true)
+     * @ORM\Column(name="promo", type="string", nullable=true)
      */
     private $promo;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="availability", type="array", nullable=true)
+     * @ORM\Column(name="availability", type="string", nullable=true)
      */
     private $availability;
 
