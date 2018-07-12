@@ -19,10 +19,18 @@
                             Compte
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                             <a class="dropdown-item" href="/login">Connexion</a>
                             <a class="dropdown-item" href="/register">Créer un compte</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Se déconnecter</a>
+                            <a class="dropdown-item"{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
