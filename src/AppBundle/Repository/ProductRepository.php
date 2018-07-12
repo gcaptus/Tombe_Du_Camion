@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findProduct($key)
+    {
+         $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT u FROM AppBundle:Product u WHERE u.brand LIKE :name');
+        $query->setParameter('name', '%'.$key.'%');
+        $result = $query->getResult();
+       
+        return $result; 
+
+        
+
+    }
 }

@@ -1,6 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 {% include 'menu.html.twig' %}
+
+
+<h1>Les promos tombées du camion !</h1>
+
+    <h2>Ventes flash</h2>
+{% for vf in venteflash %}            
+    <li><strong> Produit {{ vf.name }} Fabriqué par {{ vf.brand }} : </strong></li>
+    <li> - Prix d'achat : {{vf.purchasePrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
+    <li>- Quantité disponible : {{vf.quantity}}</li>
+{% endfor %}
+
+    <h2>Promos</h2>
+{% for p in promo %}            
+    <li><strong> Produit {{ p.name }} Fabriqué par {{ p.brand }} : </strong></li>
+    <li> - Prix d'achat : {{p.purchasePrice}} Euros / Prix de vente : {{p.sellingPrice}} Euros</li>
+    <li>- Quantité disponible : {{p.quantity}}</li>
+{% endfor %}
+
+    <h2>Meilleurs ventes</h2>
+{% for mv in topvente %}            
+    <li><strong> Produit {{ mv.name }} Fabriqué par {{ mv.brand }} : </strong></li>
+    <li> - Prix d'achat : {{mv.purchasePrice}} Euros / Prix de vente : {{mv.sellingPrice}} Euros</li>
+    <li>- Quantité disponible : {{mv.quantity}}</li>
+{% endfor %}
+
 {% endblock %}
 
 {% block stylesheets %}
@@ -8,3 +33,4 @@
 
 </style>
 {% endblock %}
+

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
+
 class Product
 {
     /**
@@ -19,78 +20,87 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var float
      *
      * @ORM\Column(name="purchase_price", type="float")
      */
-    private $purchasePrice;
+    protected $purchasePrice;
 
     /**
      * @var float
      *
      * @ORM\Column(name="selling_price", type="float")
      */
-    private $sellingPrice;
+    protected $sellingPrice;
 
     /**
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255)
      */
-    private $brand;
+    protected $brand;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="register_date", type="datetime")
      */
-    private $registerDate;
+    protected $registerDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="promo", type="string", length=255)
      */
-    private $promo;
+    protected $promo;
 
     /**
      * @var string
      *
      * @ORM\Column(name="available", type="string", length=255)
      */
-    private $available;
+    protected $available;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer")
      */
-    private $quantity;
+    protected $quantity;
 
     /**
      * @var float
      *
      * @ORM\Column(name="weight", type="float")
      */
-    private $weight;
+    protected $weight;
 
     /**
      * @var float
      *
      * @ORM\Column(name="size", type="float")
      */
-    private $size;
+    protected $size;
 
+    /**
+  
+     */
+    protected $providers;
+
+    /**
+     * 
+     */
+    protected $medias;
 
     /**
      * Get id
@@ -341,5 +351,86 @@ class Product
     {
         return $this->size;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getProviders()
+    {
+        return $this->providers;
+    }
+
+    /**
+     * @param mixed $providers
+     */
+    public function setProviders($providers)
+    {
+        $this->providers = $providers;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     *
+     * @return Product
+     */
+    public function addProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers[] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Remove provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     */
+    public function removeProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Add media
+     *
+     * @param \AppBundle\Entity\Media $media
+     *
+     * @return Product
+     */
+    public function addMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \AppBundle\Entity\Media $media
+     */
+    public function removeMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias()
+    {
+        return $this->medias;
+    }
+}
