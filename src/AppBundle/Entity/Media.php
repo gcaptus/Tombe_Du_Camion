@@ -4,7 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Media
  *
@@ -25,16 +24,15 @@ class Media
     /**
      * @var array
      *
-     * @ORM\Column(name="url", type="array")
+     * @ORM\Column(name="url", type="array", nullable=true)
      */
     private $url;
 
     /**
      * Many Medias have One Product
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="medias")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
-    private $products;
+    private $product;
 
 
     /**
@@ -72,26 +70,26 @@ class Media
     }
 
     /**
-     * Set products
+     * Set product
      *
-     * @param \AppBundle\Entity\Product $products
+     * @param \AppBundle\Entity\Product $product
      *
      * @return Media
      */
-    public function setProducts(\AppBundle\Entity\Product $products = null)
+    public function setProduct(\AppBundle\Entity\Product $product = null)
     {
-        $this->products = $products;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get products
+     * Get product
      *
      * @return \AppBundle\Entity\Product
      */
-    public function getProducts()
+    public function getProduct()
     {
-        return $this->products;
+        return $this->product;
     }
 }

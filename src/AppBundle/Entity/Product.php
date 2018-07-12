@@ -19,90 +19,90 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="designation", type="string", length=255)
      */
-    protected $name;
+    private $designation;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="purchase_price", type="float", nullable=true)
+     * @ORM\Column(name="buyPrice", type="float", nullable=true)
      */
-    protected $purchasePrice;
+    private $buyPrice;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="selling_price", type="float", nullable=true)
+     * @ORM\Column(name="sellPrice", type="float", nullable=true)
      */
-    protected $sellingPrice;
+    private $sellPrice;
+
+    /**
+     * Many Product have Many Providers
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
+     */
+    private $providers;
 
     /**
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255, nullable=true)
      */
-    protected $brand;
+    private $brand;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="register_date", type="datetime", nullable=true)
+     * @ORM\Column(name="createdDate", type="datetime")
      */
-    protected $registerDate;
+    private $createdDate;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="promo", type="string", length=255, nullable=true)
+     * @ORM\Column(name="promo", type="string", nullable=true)
      */
-    protected $promo;
+    private $promo;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="available", type="string", length=255, nullable=true)
+     * @ORM\Column(name="availability", type="string", nullable=true)
      */
-    protected $available;
+    private $availability;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
-    protected $quantity;
+    private $quantity;
 
     /**
      * @var float
      *
      * @ORM\Column(name="weight", type="float", nullable=true)
      */
-    protected $weight;
+    private $weight;
 
     /**
      * @var float
      *
      * @ORM\Column(name="size", type="float", nullable=true)
      */
-    protected $size;
-
-    /**
-     * Many Providers have Many Products
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
-     * @ORM\JoinTable(name="products_providers")
-     */
-    protected $providers;
+    private $size;
 
     /**
      * One Product have Many Medias
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="products")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="product")
      */
-    protected $medias;
+    private $medias;
+
 
     /**
      * Get id
@@ -115,75 +115,75 @@ class Product
     }
 
     /**
-     * Set name
+     * Set designation
      *
-     * @param string $name
+     * @param string $designation
      *
      * @return Product
      */
-    public function setName($name)
+    public function setDesignation($designation)
     {
-        $this->name = $name;
+        $this->designation = $designation;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get designation
      *
      * @return string
      */
-    public function getName()
+    public function getDesignation()
     {
-        return $this->name;
+        return $this->designation;
     }
 
     /**
-     * Set purchasePrice
+     * Set buyPrice
      *
-     * @param float $purchasePrice
+     * @param float $buyPrice
      *
      * @return Product
      */
-    public function setPurchasePrice($purchasePrice)
+    public function setBuyPrice($buyPrice)
     {
-        $this->purchasePrice = $purchasePrice;
+        $this->buyPrice = $buyPrice;
 
         return $this;
     }
 
     /**
-     * Get purchasePrice
+     * Get buyPrice
      *
      * @return float
      */
-    public function getPurchasePrice()
+    public function getBuyPrice()
     {
-        return $this->purchasePrice;
+        return $this->buyPrice;
     }
 
     /**
-     * Set sellingPrice
+     * Set sellPrice
      *
-     * @param float $sellingPrice
+     * @param float $sellPrice
      *
      * @return Product
      */
-    public function setSellingPrice($sellingPrice)
+    public function setSellPrice($sellPrice)
     {
-        $this->sellingPrice = $sellingPrice;
+        $this->sellPrice = $sellPrice;
 
         return $this;
     }
 
     /**
-     * Get sellingPrice
+     * Get sellPrice
      *
      * @return float
      */
-    public function getSellingPrice()
+    public function getSellPrice()
     {
-        return $this->sellingPrice;
+        return $this->sellPrice;
     }
 
     /**
@@ -211,33 +211,33 @@ class Product
     }
 
     /**
-     * Set registerDate
+     * Set createdDate
      *
-     * @param \DateTime $registerDate
+     * @param \DateTime $createdDate
      *
      * @return Product
      */
-    public function setRegisterDate($registerDate)
+    public function setCreatedDate($createdDate)
     {
-        $this->registerDate = $registerDate;
+        $this->createdDate = $createdDate;
 
         return $this;
     }
 
     /**
-     * Get registerDate
+     * Get createdDate
      *
      * @return \DateTime
      */
-    public function getRegisterDate()
+    public function getCreatedDate()
     {
-        return $this->registerDate;
+        return $this->createdDate;
     }
 
     /**
      * Set promo
      *
-     * @param string $promo
+     * @param array $promo
      *
      * @return Product
      */
@@ -251,7 +251,7 @@ class Product
     /**
      * Get promo
      *
-     * @return string
+     * @return array
      */
     public function getPromo()
     {
@@ -259,27 +259,27 @@ class Product
     }
 
     /**
-     * Set available
+     * Set availability
      *
-     * @param string $available
+     * @param array $availability
      *
      * @return Product
      */
-    public function setAvailable($available)
+    public function setAvailability($availability)
     {
-        $this->available = $available;
+        $this->availability = $availability;
 
         return $this;
     }
 
     /**
-     * Get available
+     * Get availability
      *
-     * @return string
+     * @return array
      */
-    public function getAvailable()
+    public function getAvailability()
     {
-        return $this->available;
+        return $this->availability;
     }
 
     /**
@@ -355,19 +355,27 @@ class Product
     }
 
     /**
-     * @return mixed
+     * Set media
+     *
+     * @param \stdClass $media
+     *
+     * @return Product
      */
-    public function getProviders()
+    public function setMedia($media)
     {
-        return $this->providers;
+        $this->media = $media;
+
+        return $this;
     }
 
     /**
-     * @param mixed $providers
+     * Get media
+     *
+     * @return \stdClass
      */
-    public function setProviders($providers)
+    public function getMedia()
     {
-        $this->providers = $providers;
+        return $this->media;
     }
     /**
      * Constructor
@@ -400,6 +408,16 @@ class Product
     public function removeProvider(\AppBundle\Entity\Provider $provider)
     {
         $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Get providers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProviders()
+    {
+        return $this->providers;
     }
 
     /**

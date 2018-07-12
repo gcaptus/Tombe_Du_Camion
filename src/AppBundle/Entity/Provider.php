@@ -31,30 +31,9 @@ class Provider
     /**
      * @var string
      *
-     * @ORM\Column(name="address1", type="string", length=255, nullable=true)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
-    private $address1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address2", type="string", length=255, nullable=true)
-     */
-    private $address2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
-     */
-    private $telephone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     */
-    private $email;
+    private $address;
 
     /**
      * Many Providers have Many Products
@@ -98,115 +77,27 @@ class Provider
     }
 
     /**
-     * Set address1
+     * Set address
      *
-     * @param string $address1
+     * @param string $address
      *
      * @return Provider
      */
-    public function setAddress1($address1)
+    public function setAddress($address)
     {
-        $this->address1 = $address1;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get address1
+     * Get address
      *
      * @return string
      */
-    public function getAddress1()
+    public function getAddress()
     {
-        return $this->address1;
-    }
-
-    /**
-     * Set address2
-     *
-     * @param string $address2
-     *
-     * @return Provider
-     */
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
-
-        return $this;
-    }
-
-    /**
-     * Get address2
-     *
-     * @return string
-     */
-    public function getAddress2()
-    {
-        return $this->address2;
-    }
-
-    /**
-     * Set telephone
-     *
-     * @param string $telephone
-     *
-     * @return Provider
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Get telephone
-     *
-     * @return string
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Provider
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProducts()
-    {
-        return $this->products;
-    }
-
-    /**
-     * @param mixed $products
-     */
-    public function setProducts($products)
-    {
-        $this->products = $products;
+        return $this->address;
     }
     /**
      * Constructor
@@ -238,5 +129,15 @@ class Provider
     public function removeProduct(\AppBundle\Entity\Product $product)
     {
         $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }
