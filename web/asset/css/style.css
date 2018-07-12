@@ -1,0 +1,34 @@
+body {
+    font-family: Helvetica;
+}
+#salope {
+    padding:20px;
+    background-color:white;
+}
+#pute {
+
+  margin-left:30%;
+  margin-top:15%;
+  color:white;
+}
+
+.testou {
+background-color: black;
+margin-top: 5%;
+padding-top:5%;
+margin-right: -5%;
+}
+@media (max-width: 480px) {
+    #pute {
+        top: 50%; /* IMPORTANT */
+        left: 50%; /* IMPORTANT */
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+
+        margin-top: -208.5px; /* HALF OF THE HEIGHT */
+        margin-left: -375px; /* HALF OF THE WIDTH */
+    }
+}
