@@ -67,6 +67,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="Type", type="string", length=255)
+     */
+    protected $Type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="available", type="string", length=255)
      */
     protected $available;

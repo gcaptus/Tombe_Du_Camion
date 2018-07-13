@@ -52,6 +52,7 @@ class DefaultController extends Controller
         {
             $res = $form->getData();
             $key = $res['Rechercher'];
+            $key= preg_replace('/\s/', '', $key);  
              $em = $this->getDoctrine()->getEntityManager();
              $product = $em->getRepository('AppBundle:Product')->findProduct($key);
           
