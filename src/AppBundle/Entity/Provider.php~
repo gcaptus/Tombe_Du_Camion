@@ -36,10 +36,10 @@ class Provider
     private $address;
 
     /**
-     * Many Providers have Many Products
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product", mappedBy="providers")
+     * Many Providers have Many Cpus
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cpu", mappedBy="providers")
      */
-    private $products;
+    private $cpus;
 
 
     /**
