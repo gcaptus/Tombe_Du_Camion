@@ -5,12 +5,11 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
  *
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
-class Product
+abstract class Product
 {
     /**
      * @var int
@@ -41,12 +40,6 @@ class Product
      * @ORM\Column(name="sellPrice", type="float", nullable=true)
      */
     private $sellPrice;
-
-    /**
-     * Many Product have Many Providers
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
-     */
-    private $providers;
 
     /**
      * @var string
@@ -96,13 +89,6 @@ class Product
      * @ORM\Column(name="size", type="float", nullable=true)
      */
     private $size;
-
-    /**
-     * One Product have Many Medias
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="product")
-     */
-    private $medias;
-
 
     /**
      * Get id
@@ -352,105 +338,5 @@ class Product
     public function getSize()
     {
         return $this->size;
-    }
-
-    /**
-     * Set media
-     *
-     * @param \stdClass $media
-     *
-     * @return Product
-     */
-    public function setMedia($media)
-    {
-        $this->media = $media;
-
-        return $this;
-    }
-
-    /**
-     * Get media
-     *
-     * @return \stdClass
-     */
-    public function getMedia()
-    {
-        return $this->media;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add provider
-     *
-     * @param \AppBundle\Entity\Provider $provider
-     *
-     * @return Product
-     */
-    public function addProvider(\AppBundle\Entity\Provider $provider)
-    {
-        $this->providers[] = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Remove provider
-     *
-     * @param \AppBundle\Entity\Provider $provider
-     */
-    public function removeProvider(\AppBundle\Entity\Provider $provider)
-    {
-        $this->providers->removeElement($provider);
-    }
-
-    /**
-     * Get providers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProviders()
-    {
-        return $this->providers;
-    }
-
-    /**
-     * Add media
-     *
-     * @param \AppBundle\Entity\Media $media
-     *
-     * @return Product
-     */
-    public function addMedia(\AppBundle\Entity\Media $media)
-    {
-        $this->medias[] = $media;
-
-        return $this;
-    }
-
-    /**
-     * Remove media
-     *
-     * @param \AppBundle\Entity\Media $media
-     */
-    public function removeMedia(\AppBundle\Entity\Media $media)
-    {
-        $this->medias->removeElement($media);
-    }
-
-    /**
-     * Get medias
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMedias()
-    {
-        return $this->medias;
     }
 }

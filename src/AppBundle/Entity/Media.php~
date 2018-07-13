@@ -28,12 +28,6 @@ class Media
      */
     private $url;
 
-    /**
-     * Many Medias have One Cpu
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cpu", inversedBy="medias")
-     */
-    private $cpu;
-
 
     /**
      * Get id
