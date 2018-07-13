@@ -36,10 +36,10 @@ class Provider
     private $address;
 
     /**
-     * Many Providers have Many Products
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product", mappedBy="providers")
+     * Many Providers have Many Cpus
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cpu", mappedBy="providers")
      */
-    private $products;
+    private $cpus;
 
 
     /**
@@ -139,5 +139,39 @@ class Provider
     public function getProducts()
     {
         return $this->products;
+    }
+
+    /**
+     * Add cpus
+     *
+     * @param \AppBundle\Entity\Cpu $cpus
+     *
+     * @return Provider
+     */
+    public function addCpus(\AppBundle\Entity\Cpu $cpus)
+    {
+        $this->cpus[] = $cpus;
+
+        return $this;
+    }
+
+    /**
+     * Remove cpus
+     *
+     * @param \AppBundle\Entity\Cpu $cpus
+     */
+    public function removeCpus(\AppBundle\Entity\Cpu $cpus)
+    {
+        $this->cpus->removeElement($cpus);
+    }
+
+    /**
+     * Get cpus
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCpus()
+    {
+        return $this->cpus;
     }
 }
