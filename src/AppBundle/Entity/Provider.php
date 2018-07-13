@@ -36,13 +36,6 @@ class Provider
     private $address;
 
     /**
-     * Many Providers have Many Cpus
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Cpu", mappedBy="providers")
-     */
-    private $cpus;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -98,80 +91,5 @@ class Provider
     public function getAddress()
     {
         return $this->address;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add product
-     *
-     * @param \AppBundle\Entity\Product $product
-     *
-     * @return Provider
-     */
-    public function addProduct(\AppBundle\Entity\Product $product)
-    {
-        $this->products[] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Remove product
-     *
-     * @param \AppBundle\Entity\Product $product
-     */
-    public function removeProduct(\AppBundle\Entity\Product $product)
-    {
-        $this->products->removeElement($product);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProducts()
-    {
-        return $this->products;
-    }
-
-    /**
-     * Add cpus
-     *
-     * @param \AppBundle\Entity\Cpu $cpus
-     *
-     * @return Provider
-     */
-    public function addCpus(\AppBundle\Entity\Cpu $cpus)
-    {
-        $this->cpus[] = $cpus;
-
-        return $this;
-    }
-
-    /**
-     * Remove cpus
-     *
-     * @param \AppBundle\Entity\Cpu $cpus
-     */
-    public function removeCpus(\AppBundle\Entity\Cpu $cpus)
-    {
-        $this->cpus->removeElement($cpus);
-    }
-
-    /**
-     * Get cpus
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCpus()
-    {
-        return $this->cpus;
     }
 }

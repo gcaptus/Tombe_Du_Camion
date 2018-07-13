@@ -28,12 +28,6 @@ class Media
      */
     private $url;
 
-    /**
-     * Many Medias have One Cpu
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cpu", inversedBy="medias")
-     */
-    private $cpu;
-
 
     /**
      * Get id
@@ -91,29 +85,5 @@ class Media
     public function getProduct()
     {
         return $this->product;
-    }
-
-    /**
-     * Set cpu
-     *
-     * @param \AppBundle\Entity\Cpu $cpu
-     *
-     * @return Media
-     */
-    public function setCpu(\AppBundle\Entity\Cpu $cpu = null)
-    {
-        $this->cpu = $cpu;
-
-        return $this;
-    }
-
-    /**
-     * Get cpu
-     *
-     * @return \AppBundle\Entity\Cpu
-     */
-    public function getCpu()
-    {
-        return $this->cpu;
     }
 }
