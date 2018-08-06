@@ -10,17 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="cpu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CpuRepository")
  */
-class Cpu
+class Cpu extends Product
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var string
      *
@@ -52,31 +43,9 @@ class Cpu
     /**
      * @var string
      *
-     * @ORM\Column(name="memoryController", type="string", length=255, nullable=true)
+     * @ORM\Column(name="memoryControl", type="string", length=255, nullable=true)
      */
-    private $memoryController;
-
-    /**
-     * Many Cpus have Many Providers
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="cpus")
-     */
-    private $providers;
-
-    /**
-     * One Cpu have Many Medias
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="cpu")
-     */
-    private $medias;
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $memoryControl;
 
     /**
      * Set model
@@ -175,27 +144,26 @@ class Cpu
     }
 
     /**
-     * Set memoryController
+     * Set memoryControl
      *
-     * @param string $memoryController
+     * @param string $memoryControl
      *
      * @return Cpu
      */
-    public function setMemoryController($memoryController)
+    public function setMemoryControl($memoryControl)
     {
-        $this->memoryController = $memoryController;
+        $this->memoryControl = $memoryControl;
 
         return $this;
     }
 
     /**
-     * Get memoryController
+     * Get memoryControl
      *
      * @return string
      */
-    public function getMemoryController()
+    public function getMemoryControl()
     {
-        return $this->memoryController;
+        return $this->memoryControl;
     }
 }
-

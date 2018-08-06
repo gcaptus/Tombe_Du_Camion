@@ -167,4 +167,3 @@ class Cpu extends Product
         return $this->memoryControl;
     }
 }
-
