@@ -5,9 +5,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * This class represents a parts Product, It is abstract because it serve as base for the
+ * differents categories.
  *
- * @ORM\Table(name="product")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\MappedSuperclass()
  */
 class Product
 {
@@ -18,83 +19,78 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="designation", type="string", length=255)
+     * @ORM\Column(name="designation", type="string", length=255, unique=true)
      */
     private $designation;
 
     /**
-     * @var float
+     * @var int
      *
-     * @ORM\Column(name="buyPrice", type="float", nullable=true)
+     * @ORM\Column(name="buyingPrice", type="integer", nullable=true)
      */
-    private $buyPrice;
+    private $buyingPrice;
 
     /**
-     * @var float
+     * @var int
      *
-     * @ORM\Column(name="sellPrice", type="float", nullable=true)
+     * @ORM\Column(name="sellingPrice", type="integer", nullable=true)
      */
-    private $sellPrice;
+    private $sellingPrice;
 
     /**
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255, nullable=true)
      */
-    protected $brand;
+    private $brand;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdDate", type="datetime")
+     * @ORM\Column(name="entryDate", type="datetime", nullable=true)
      */
-    private $createdDate;
+    private $entryDate;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="promo", type="string", nullable=true)
+     * @ORM\Column(name="discountStatus", type="string", length=255, nullable=true)
      */
-    protected $promo;
+    private $discountStatus;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="availability", type="string", nullable=true)
+     * @ORM\Column(name="stockStatus", type="string", length=255, nullable=true)
      */
-    private $availability;
+    private $stockStatus;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
-    protected $quantity;
+    private $quantity;
 
     /**
      * @var float
      *
      * @ORM\Column(name="weight", type="float", nullable=true)
      */
-    protected $weight;
+    private $weight;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="size", type="float", nullable=true)
+     * @ORM\Column(name="size", type="string", length=255, nullable=true)
      */
-    protected $size;
-
-    /**
-     * 
-     */
-    protected $medias;
-
+    private $size;
+    
     /**
      * Get id
      *
@@ -130,51 +126,51 @@ class Product
     }
 
     /**
-     * Set buyPrice
+     * Set buyingPrice
      *
-     * @param float $buyPrice
+     * @param integer $buyingPrice
      *
      * @return Product
      */
-    public function setBuyPrice($buyPrice)
+    public function setBuyingPrice($buyingPrice)
     {
-        $this->buyPrice = $buyPrice;
+        $this->buyingPrice = $buyingPrice;
 
         return $this;
     }
 
     /**
-     * Get buyPrice
+     * Get buyingPrice
      *
-     * @return float
+     * @return int
      */
-    public function getBuyPrice()
+    public function getBuyingPrice()
     {
-        return $this->buyPrice;
+        return $this->buyingPrice;
     }
 
     /**
-     * Set sellPrice
+     * Set sellingPrice
      *
-     * @param float $sellPrice
+     * @param integer $sellingPrice
      *
      * @return Product
      */
-    public function setSellPrice($sellPrice)
+    public function setSellingPrice($sellingPrice)
     {
-        $this->sellPrice = $sellPrice;
+        $this->sellingPrice = $sellingPrice;
 
         return $this;
     }
 
     /**
-     * Get sellPrice
+     * Get sellingPrice
      *
-     * @return float
+     * @return int
      */
-    public function getSellPrice()
+    public function getSellingPrice()
     {
-        return $this->sellPrice;
+        return $this->sellingPrice;
     }
 
     /**
@@ -202,75 +198,75 @@ class Product
     }
 
     /**
-     * Set createdDate
+     * Set entryDate
      *
-     * @param \DateTime $createdDate
+     * @param \DateTime $entryDate
      *
      * @return Product
      */
-    public function setCreatedDate($createdDate)
+    public function setEntryDate($entryDate)
     {
-        $this->createdDate = $createdDate;
+        $this->entryDate = $entryDate;
 
         return $this;
     }
 
     /**
-     * Get createdDate
+     * Get entryDate
      *
      * @return \DateTime
      */
-    public function getCreatedDate()
+    public function getEntryDate()
     {
-        return $this->createdDate;
+        return $this->entryDate;
     }
 
     /**
-     * Set promo
+     * Set discountStatus
      *
-     * @param array $promo
+     * @param string $discountStatus
      *
      * @return Product
      */
-    public function setPromo($promo)
+    public function setDiscountStatus($discountStatus)
     {
-        $this->promo = $promo;
+        $this->discountStatus = $discountStatus;
 
         return $this;
     }
 
     /**
-     * Get promo
+     * Get discountStatus
      *
-     * @return array
+     * @return string
      */
-    public function getPromo()
+    public function getDiscountStatus()
     {
-        return $this->promo;
+        return $this->discountStatus;
     }
 
     /**
-     * Set availability
+     * Set stockStatus
      *
-     * @param array $availability
+     * @param string $stockStatus
      *
      * @return Product
      */
-    public function setAvailability($availability)
+    public function setStockStatus($stockStatus)
     {
-        $this->availability = $availability;
+        $this->stockStatus = $stockStatus;
 
         return $this;
     }
 
     /**
-     * Get availability
+     * Get stockStatus
      *
-     * @return array
+     * @return string
      */
-    public function getAvailability()
+    public function getStockStatus()
     {
-        return $this->availability;
+        return $this->stockStatus;
     }
 
     /**
@@ -324,7 +320,7 @@ class Product
     /**
      * Set size
      *
-     * @param float $size
+     * @param string $size
      *
      * @return Product
      */
@@ -338,92 +334,11 @@ class Product
     /**
      * Get size
      *
-     * @return float
+     * @return string
      */
     public function getSize()
     {
         return $this->size;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getProviders()
-    {
-        return $this->providers;
-    }
-
-    /**
-     * @param mixed $providers
-     */
-    public function setProviders($providers)
-    {
-        $this->providers = $providers;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add provider
-     *
-     * @param \AppBundle\Entity\Provider $provider
-     *
-     * @return Product
-     */
-    public function addProvider(\AppBundle\Entity\Provider $provider)
-    {
-        $this->providers[] = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Remove provider
-     *
-     * @param \AppBundle\Entity\Provider $provider
-     */
-    public function removeProvider(\AppBundle\Entity\Provider $provider)
-    {
-        $this->providers->removeElement($provider);
-    }
-
-    /**
-     * Add media
-     *
-     * @param \AppBundle\Entity\Media $media
-     *
-     * @return Product
-     */
-    public function addMedia(\AppBundle\Entity\Media $media)
-    {
-        $this->medias[] = $media;
-
-        return $this;
-    }
-
-    /**
-     * Remove media
-     *
-     * @param \AppBundle\Entity\Media $media
-     */
-    public function removeMedia(\AppBundle\Entity\Media $media)
-    {
-        $this->medias->removeElement($media);
-    }
-
-    /**
-     * Get medias
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMedias()
-    {
-        return $this->medias;
-    }
 }
+

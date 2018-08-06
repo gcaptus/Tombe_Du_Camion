@@ -40,13 +40,13 @@ class DefaultController extends Controller
 
         $repo = $this->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Product');
+            ->getRepository('AppBundle:Cpu');
         $venteflash = $repo->findBy(
-            array('promo' => 'vente_flash'));
+            array('discountStatus' => 'vente_flash'));
         $promo = $repo->findBy(
-            array('promo' => 'promo'));
+            array('discountStatus' => 'promo'));
         $topvente = $repo->findBy(
-            array('promo' => 'top_vente'));
+            array('discountStatus' => 'top_vente'));
 
         if ($form->isSubmitted() && $form->isValid())
         {
