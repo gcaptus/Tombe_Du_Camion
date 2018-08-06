@@ -1,0 +1,24 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<style>
+
+#RegisterForm {
+	margin-top:4%;
+	display:flex;
+margin-left: 40%;
+    box-sizing: border-box;
+margin-right:45%;
+border: solid #ffdc6e 10px;
+text-align: center;
+padding-left:20px;
+padding-bottom: 10px;
+}
+</style>
+<section id="RegisterForm">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div id="pute" name="pute">
+        <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</section>
+{{ form_end(form) }}
+ 

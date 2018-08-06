@@ -22,6 +22,9 @@ class ProductController extends Controller
      */
     public function editAction()
     {
+
+
+
         return $this->render('AppBundle:Product:edit.html.twig', array(
             // ...
         ));
@@ -71,6 +74,7 @@ class ProductController extends Controller
             array('promo' => 'promo'));
          $topvente = $repo->findBy(
             array('promo' => 'top_vente'));
+         
 
         return $this->render('@App/Product/promo.html.twig', array(
             'venteflash' => $venteflash,

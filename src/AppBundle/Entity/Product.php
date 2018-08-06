@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
-abstract class Product
+class Product
 {
     /**
      * @var int
@@ -18,7 +18,7 @@ abstract class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ abstract class Product
      *
      * @ORM\Column(name="brand", type="string", length=255, nullable=true)
      */
-    private $brand;
+    protected $brand;
 
     /**
      * @var \DateTime
@@ -60,7 +60,7 @@ abstract class Product
      *
      * @ORM\Column(name="promo", type="string", nullable=true)
      */
-    private $promo;
+    protected $promo;
 
     /**
      * @var array
@@ -74,21 +74,26 @@ abstract class Product
      *
      * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
-    private $quantity;
+    protected $quantity;
 
     /**
      * @var float
      *
      * @ORM\Column(name="weight", type="float", nullable=true)
      */
-    private $weight;
+    protected $weight;
 
     /**
      * @var float
      *
      * @ORM\Column(name="size", type="float", nullable=true)
      */
-    private $size;
+    protected $size;
+
+    /**
+     * 
+     */
+    protected $medias;
 
     /**
      * Get id
@@ -338,5 +343,87 @@ abstract class Product
     public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProviders()
+    {
+        return $this->providers;
+    }
+
+    /**
+     * @param mixed $providers
+     */
+    public function setProviders($providers)
+    {
+        $this->providers = $providers;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     *
+     * @return Product
+     */
+    public function addProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers[] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Remove provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     */
+    public function removeProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Add media
+     *
+     * @param \AppBundle\Entity\Media $media
+     *
+     * @return Product
+     */
+    public function addMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \AppBundle\Entity\Media $media
+     */
+    public function removeMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias()
+    {
+        return $this->medias;
     }
 }
