@@ -17,4 +17,5 @@
 /web/bundles/
 /.idea
 /.vs
+/web/.htaccess
 

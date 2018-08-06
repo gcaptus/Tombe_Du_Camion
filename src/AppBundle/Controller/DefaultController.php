@@ -23,60 +23,60 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-       $search = NULL;
-      
+        $search = NULL;
 
-       $formBuilder = $this->createFormBuilder();
 
-      $formBuilder
+        $formBuilder = $this->createFormBuilder();
 
-      ->add('Rechercher', SearchType::class)
+        $formBuilder
 
-      ->add('save',      SubmitType::class)
-      ;
-      $form = $formBuilder->getForm();
+            ->add('Rechercher', SearchType::class)
 
-    $form->handleRequest($request);
+            ->add('save',      SubmitType::class)
+        ;
+        $form = $formBuilder->getForm();
 
-    $repo = $this->getDoctrine()
-        ->getManager()
-        ->getRepository('AppBundle:Product');
-         $venteflash = $repo->findBy(
+        $form->handleRequest($request);
+
+        $repo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Product');
+        $venteflash = $repo->findBy(
             array('promo' => 'vente_flash'));
-         $promo = $repo->findBy(
+        $promo = $repo->findBy(
             array('promo' => 'promo'));
-         $topvente = $repo->findBy(
+        $topvente = $repo->findBy(
             array('promo' => 'top_vente'));
 
-        if ($form->isSubmitted() && $form->isValid()) 
+        if ($form->isSubmitted() && $form->isValid())
         {
             $res = $form->getData();
             $key = $res['Rechercher'];
-            $key= preg_replace('/\s/', '', $key);  
-             $em = $this->getDoctrine()->getEntityManager();
-             $product = $em->getRepository('AppBundle:Product')->findProduct($key);
-          
+            $key= preg_replace('/\s/', '', $key);
+            $em = $this->getDoctrine()->getEntityManager();
+            $product = $em->getRepository('AppBundle:Product')->findProduct($key);
+
             return $this->render('default/results.html.twig', array(
-           'form' => $form->createView(),
-           'product' => $product,
-           
-             ));
+                'form' => $form->createView(),
+                'product' => $product,
+
+            ));
 
         }
 
         else
         {
-             return $this->render('default/index.html.twig',array(
-             'form' => $form->createView(),
-              'venteflash' => $venteflash,
-            'promo' => $promo,
-            'topvente' => $topvente,
-           
-           ));
-       
+            return $this->render('default/index.html.twig',array(
+                'form' => $form->createView(),
+                'venteflash' => $venteflash,
+                'promo' => $promo,
+                'topvente' => $topvente,
+
+            ));
+
         }
-       
+
     }
-        
-    
+
+
 }
