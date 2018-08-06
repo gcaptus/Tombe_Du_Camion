@@ -168,4 +168,3 @@ class Memory extends Product
         return $this->capacityPerItem;
     }
 }
-

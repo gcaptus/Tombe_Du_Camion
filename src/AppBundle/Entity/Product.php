@@ -8,7 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * This class represents a parts Product, It is abstract because it serve as base for the
  * differents categories.
  *
- * @ORM\MappedSuperclass()
+ * @ORM\Entity()
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="category", type="string")
+ * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory"})
  */
 class Product
 {
@@ -341,4 +344,3 @@ class Product
         return $this->size;
     }
 }
-
