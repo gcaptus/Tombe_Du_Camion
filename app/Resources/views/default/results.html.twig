@@ -7,8 +7,8 @@
 
 <h1>Vos recherches</h1>
 {% for vf in product %}            
-    <li><strong> Produit {{ vf.name }} Fabriqué par {{ vf.brand }} : </strong></li>
-    <li> - Prix d'achat : {{vf.purchasePrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
+    <li><strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong></li>
+    <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{vf.quantity}}</li>
 {% endfor %}
 

@@ -32,7 +32,7 @@ class DefaultController extends Controller
 
             ->add('Rechercher', SearchType::class)
 
-            ->add('save',      SubmitType::class)
+            ->add('Recherche',      SubmitType::class)
         ;
         $form = $formBuilder->getForm();
 
@@ -40,7 +40,7 @@ class DefaultController extends Controller
 
         $repo = $this->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Cpu');
+            ->getRepository('AppBundle:Product');
         $venteflash = $repo->findBy(
             array('discountStatus' => 'vente_flash'));
         $promo = $repo->findBy(
