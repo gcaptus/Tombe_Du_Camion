@@ -7,22 +7,22 @@
 
     <h2>Ventes flash</h2>
 {% for vf in venteflash %}            
-    <li><strong> Produit {{ vf.name }} Fabriqué par {{ vf.brand }} : </strong></li>
-    <li> - Prix d'achat : {{vf.purchasePrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
+    <li><strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong></li>
+    <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{vf.quantity}}</li>
 {% endfor %}
 
     <h2>Promos</h2>
 {% for p in promo %}            
-    <li><strong> Produit {{ p.name }} Fabriqué par {{ p.brand }} : </strong></li>
-    <li> - Prix d'achat : {{p.purchasePrice}} Euros / Prix de vente : {{p.sellingPrice}} Euros</li>
+    <li><strong> Produit {{ p.designation }} Fabriqué par {{ p.brand }} : </strong></li>
+    <li> - Prix d'achat : {{p.buyingPrice}} Euros / Prix de vente : {{p.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{p.quantity}}</li>
 {% endfor %}
 
     <h2>Meilleurs ventes</h2>
 {% for mv in topvente %}            
-    <li><strong> Produit {{ mv.name }} Fabriqué par {{ mv.brand }} : </strong></li>
-    <li> - Prix d'achat : {{mv.purchasePrice}} Euros / Prix de vente : {{mv.sellingPrice}} Euros</li>
+    <li><strong> Produit {{ mv.designation }} Fabriqué par {{ mv.brand }} : </strong></li>
+    <li> - Prix d'achat : {{mv.buyingPrice}} Euros / Prix de vente : {{mv.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{mv.quantity}}</li>
 {% endfor %}
 

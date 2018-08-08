@@ -69,11 +69,11 @@ class ProductController extends Controller
         ->getManager()
         ->getRepository('AppBundle:Product');
          $venteflash = $repo->findBy(
-            array('promo' => 'vente_flash'));
+            array('discountStatus' => 'vente_flash'));
          $promo = $repo->findBy(
-            array('promo' => 'promo'));
+            array('discountStatus' => 'promo'));
          $topvente = $repo->findBy(
-            array('promo' => 'top_vente'));
+            array('discountStatus' => 'top_vente'));
          
 
         return $this->render('@App/Product/promo.html.twig', array(
