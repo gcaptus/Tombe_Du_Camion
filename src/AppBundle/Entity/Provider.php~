@@ -36,6 +36,12 @@ class Provider
     private $address;
 
     /**
+     * Many Providers have many Products
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product", inversedBy="providers")
+     */
+    private $products;
+
+    /**
      * Get id
      *
      * @return int
@@ -92,4 +98,5 @@ class Provider
     {
         return $this->address;
     }
+
 }

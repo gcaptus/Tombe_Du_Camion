@@ -28,6 +28,12 @@ class Media
      */
     private $url;
 
+    /**
+     * Many Medias have One Product
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="medias")
+     */
+    private $product;
+
 
     /**
      * Get id
