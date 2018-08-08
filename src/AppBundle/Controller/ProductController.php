@@ -22,6 +22,9 @@ class ProductController extends Controller
      */
     public function editAction()
     {
+
+
+
         return $this->render('AppBundle:Product:edit.html.twig', array(
             // ...
         ));
@@ -65,9 +68,18 @@ class ProductController extends Controller
          $repo = $this->getDoctrine()
         ->getManager()
         ->getRepository('AppBundle:Product');
-         $product = $repo->findAll();
+         $venteflash = $repo->findBy(
+            array('discountStatus' => 'vente_flash'));
+         $promo = $repo->findBy(
+            array('discountStatus' => 'promo'));
+         $topvente = $repo->findBy(
+            array('discountStatus' => 'top_vente'));
+         
+
         return $this->render('@App/Product/promo.html.twig', array(
-            'product' => $product,
+            'venteflash' => $venteflash,
+            'promo' => $promo,
+            'topvente' => $topvente,
         ));
     }
 
