@@ -354,6 +354,7 @@ class Product
     {
         return $this->size;
     }
+
     /**
      * Constructor
      */
