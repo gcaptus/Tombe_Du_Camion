@@ -5,16 +5,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Product;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class DefaultController extends Controller
 {
@@ -24,7 +16,6 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $search = NULL;
-
 
         $formBuilder = $this->createFormBuilder();
 
@@ -59,9 +50,7 @@ class DefaultController extends Controller
             return $this->render('default/results.html.twig', array(
                 'form' => $form->createView(),
                 'product' => $product,
-
             ));
-
         }
 
         else
@@ -71,12 +60,7 @@ class DefaultController extends Controller
                 'venteflash' => $venteflash,
                 'promo' => $promo,
                 'topvente' => $topvente,
-
             ));
-
         }
-
     }
-
-
 }
