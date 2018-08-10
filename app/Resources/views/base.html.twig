@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8" />
         <title>{% block title %}Bienvenue sur Tombé du Camion{% endblock %}</title>
         {% block stylesheets %}
@@ -12,9 +13,15 @@
         <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet" >
         <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/favicon.png') }}" />
         
+         {{ render(controller(
+        'AppBundle:Default:menu'
+        
+    )) }}
+       
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

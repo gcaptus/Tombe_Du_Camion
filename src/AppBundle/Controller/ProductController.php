@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -60,27 +60,21 @@ class ProductController extends Controller
         ));
     }
 
-    /**
-     * @Route("/promo")
-     */
-    public function promoAction()
+   public function memoryAction()
     {
-         $repo = $this->getDoctrine()
-        ->getManager()
-        ->getRepository('AppBundle:Product');
-         $venteflash = $repo->findBy(
-            array('discountStatus' => 'vente_flash'));
-         $promo = $repo->findBy(
-            array('discountStatus' => 'promo'));
-         $topvente = $repo->findBy(
-            array('discountStatus' => 'top_vente'));
-         
+        $repo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Memory');
+        $memory = $repo->findAll();
 
-        return $this->render('@App/Product/promo.html.twig', array(
-            'venteflash' => $venteflash,
-            'promo' => $promo,
-            'topvente' => $topvente,
+
+
+        return $this->render('@App/Product/memory.html.twig', array(
+            "memory" => $memory,
+            
         ));
-    }
+    
+}
+
 
 }
