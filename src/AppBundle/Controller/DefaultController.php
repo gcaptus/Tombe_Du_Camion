@@ -27,7 +27,7 @@ class DefaultController extends Controller
         $promo = $repo->findBy(
             array('discountStatus' => 'promo'));
         $topvente = $repo->findBy(
-            array('discountStatus' => 'top_vente'));
+            array('discountStatus' => 'meilleurs ventes'));
 
             return $this->render('default/index.html.twig',array(
                
@@ -47,8 +47,6 @@ class DefaultController extends Controller
         $formBuilder = $this->createFormBuilder();
 
         $formBuilder
-
-         
 
             ->add('Rechercher', SearchType::class)
 
@@ -74,13 +72,12 @@ class DefaultController extends Controller
                'product' => $product,
 
              ));
-            
          }
 
          else
-         {
 
-             return $this->render('default/menu.html.twig', array(
+         {
+            return $this->render('default/menu.html.twig', array(
                
                 'form' => $form->createView(),
 
@@ -88,6 +85,39 @@ class DefaultController extends Controller
             ));
             
          }
+     }
+
+     public function memoryAction()
+     {
+            $em = $this->getDoctrine()->getEntityManager();
+            $memory = $em->getRepository('AppBundle:Memory')->findAll();
+
+            return $this->render('default/memory.html.twig', array(
+               'memory' => $memory,
+
+             ));
+     }
+
+          public function MotherBoardAction()
+     {
+            $em = $this->getDoctrine()->getEntityManager();
+            $motherboard = $em->getRepository('AppBundle:MotherBoard')->findAll();
+
+            return $this->render('default/motherboard.html.twig', array(
+               'motherboard' => $motherboard,
+
+             ));
+     }
+
+     public function cpuAction()
+     {
+            $em = $this->getDoctrine()->getEntityManager();
+            $cpu = $em->getRepository('AppBundle:Cpu')->findAll();
+
+            return $this->render('default/cpu.html.twig', array(
+               'cpu' => $cpu,
+
+             ));
      }
 
 }
