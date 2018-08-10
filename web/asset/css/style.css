@@ -6,6 +6,13 @@ body {
     font-family: Helvetica;
 }
 
+#SearchProductName {
+    padding-top:5px;
+}
+#SearchQuantity {
+    padding-bottom:5px;
+    border-bottom: solid #ffdc6e 10px;
+}
 #recherche {
     margin-left: 20px;
     text-align: center;
@@ -16,6 +23,7 @@ border: solid #ffdc6e 10px;
 }
 
 #Filtre {
+    text-align: center;
     width: 220px;
     float:left;
         box-sizing: border-box;
