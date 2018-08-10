@@ -14,7 +14,7 @@ class ProductController extends Controller
     $em = $this->getDoctrine()->getEntityManager();
     $product = $em->getRepository('AppBundle:Product')->findProduct($slug);
 
-    return $this->render('fileProduct.html.twig', array(
+    return $this->render('default/fileProduct.html.twig', array(
     'product' => $product));
     }
 }
