@@ -3,16 +3,69 @@
 {% block title %}Recherche{% endblock %}
 
 {% block body %}
-{% include 'menu.html.twig' %}
+{% include '/default/menu.html.twig' %}
+<section id="search">
+	<div id="SearchPage">
+<div id="Filtre">
+	<p>testou
+	testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
 
-<h1>Vos recherches</h1>
-{% for vf in product %}            
-    <li><strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong></li>
-    <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
-    <li>- Quantité disponible : {{vf.quantity}}</li>
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+testoutestoutestou
+
+
+testoutestoutestoutestou</p>
+</div>
+<div id="recherche">
+
+{% for vf in product %}     
+<div id="SearchPicture"> </div>       
+   <div id="SearchProductName"> <strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong> </div>
+    <div id="SearchBuyingPrice"> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros </div>
+    <div id ="SearchQuantity"> Quantité disponible : {{vf.quantity}} </div>
 {% endfor %}
-
-
-
+</div>
+</div>
+</section>
 
 {% endblock %}
