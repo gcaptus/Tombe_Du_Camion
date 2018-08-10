@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 
 class DefaultController extends Controller
@@ -13,22 +15,10 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+
+    public function indexAction()
     {
-        $search = NULL;
-
-        $formBuilder = $this->createFormBuilder();
-
-        $formBuilder
-
-            ->add('Rechercher', SearchType::class)
-
-            ->add('Recherche',      SubmitType::class)
-        ;
-        $form = $formBuilder->getForm();
-
-        $form->handleRequest($request);
-
+        
         $repo = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Product');
@@ -39,28 +29,65 @@ class DefaultController extends Controller
         $topvente = $repo->findBy(
             array('discountStatus' => 'top_vente'));
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $res = $form->getData();
-            $key = $res['Rechercher'];
-            $key= preg_replace('/\s/', '', $key);
-            $em = $this->getDoctrine()->getEntityManager();
-            $product = $em->getRepository('AppBundle:Product')->findProduct($key);
-
-            return $this->render('default/results.html.twig', array(
-                'form' => $form->createView(),
-                'product' => $product,
-            ));
-        }
-
-        else
-        {
             return $this->render('default/index.html.twig',array(
-                'form' => $form->createView(),
+               
+              
                 'venteflash' => $venteflash,
                 'promo' => $promo,
                 'topvente' => $topvente,
+
             ));
-        }
-    }
+   }
+   
+/**
+     * @Route("/results", name="results")
+     */
+   public function menuAction(Request $request)
+{   
+        $formBuilder = $this->createFormBuilder();
+
+        $formBuilder
+
+         
+
+            ->add('Rechercher', SearchType::class)
+
+            ->add('save',      SubmitType::class, array('label' => 'Rechercher'))
+        ;
+        $form = $formBuilder->getForm();
+    
+        $form->handleRequest($request);
+      
+
+            if ($form->isSubmitted() && $form->isValid())
+        {  
+
+            $res = $form->getData();
+            $key = $res['Rechercher'];
+
+            
+             $em = $this->getDoctrine()->getEntityManager();
+            $product = $em->getRepository('AppBundle:Product')->findProduct($key);
+            
+            return $this->render('default/results.html.twig', array(
+                'form' => $form->createView(),
+               'product' => $product,
+
+             ));
+            
+         }
+
+         else
+         {
+
+             return $this->render('default/menu.html.twig', array(
+               
+                'form' => $form->createView(),
+
+
+            ));
+            
+         }
+     }
+
 }

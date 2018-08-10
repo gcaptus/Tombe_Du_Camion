@@ -5,9 +5,18 @@ easy_admin_bundle:
     prefix:   /admin
 
 app:
+    
     resource: '@AppBundle/Controller/'
+   
     type: annotation
+
+    
     
 # app/config/routing.yml
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+memory:
+  defaults: { _controller: AppBundle:Product:memory }
+  path:      /memory
+

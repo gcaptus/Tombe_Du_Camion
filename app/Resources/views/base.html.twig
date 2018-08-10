@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8" />
         <title>{% block title %}Bienvenue sur Tombé du Camion{% endblock %}</title>
         {% block stylesheets %}
@@ -11,10 +12,16 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet" >
         <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/favicon.png') }}" />
-
+        
+         {{ render(controller(
+        'AppBundle:Default:menu'
+        
+    )) }}
+       
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
