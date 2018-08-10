@@ -1,16 +1,5 @@
-<?php
-// src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
-
-use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
- */
-class User extends BaseUser
+class Usertest
 {
     /**
      * @var int
@@ -19,7 +8,7 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
@@ -36,9 +25,9 @@ class User extends BaseUser
     private $lastName;
 
     /**
-     * @var \Date
+     * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date", nullable=true)
+     * @ORM\Column(name="birthDate", type="datetime")
      */
     private $birthDate;
 
@@ -65,7 +54,7 @@ class User extends BaseUser
      *
      * @param string $firstName
      *
-     * @return User
+     * @return Usertest
      */
     public function setFirstName($firstName)
     {
@@ -89,7 +78,7 @@ class User extends BaseUser
      *
      * @param string $lastName
      *
-     * @return User
+     * @return Usertest
      */
     public function setLastName($lastName)
     {
@@ -111,9 +100,9 @@ class User extends BaseUser
     /**
      * Set birthDate.
      *
-     * @param \Date $birthDate
+     * @param \DateTime $birthDate
      *
-     * @return User
+     * @return Usertest
      */
     public function setBirthDate($birthDate)
     {
@@ -125,7 +114,7 @@ class User extends BaseUser
     /**
      * Get birthDate.
      *
-     * @return \Date
+     * @return \DateTime
      */
     public function getBirthDate()
     {
@@ -137,7 +126,7 @@ class User extends BaseUser
      *
      * @param bool $gender
      *
-     * @return User
+     * @return Usertest
      */
     public function setGender($gender)
     {
