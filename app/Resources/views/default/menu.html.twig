@@ -2,18 +2,31 @@
 {% block body %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
-        <a class="navbar-brand" href="/"><img src="{{ asset('asset/images/logo.png') }}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCategories" aria-controls="navbarCategories" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+     
+
+
              <div id="menu">
     
+                <div id="topBar" data-links-seo="">
+                    <div id="topBarRenseignement">
+    <a href="/" title="Pour les pro" class="topPro">
+        <i class="fa fa-users"></i> Espace pro
+    </span></a>
+    <a href="/" title="Découvrez tous nos magasins et agences" class="topMag">
+        <i class="fa fa-map-marker"></i> Nos "magasins"
+    </span></a>
+    <a href="/" title="Guide d'achat" class="topService">
+        <i class="fa fa-book"></i> Guides d'achat
+    </span></a>
+</div>
+
+<div id="topBarConseil" style=""><i class="fa fa-phone"></i> <span class="bold">Conseil</span> : 03 88 48 59 69 <span class="headerSmall">(Non surtaxé)</span></div>                </div>
+                
+
+            
         <div class="row justify-content-center">
             <div class="collapse navbar-collapse col" id="navbarSupportedContent" >
-               
+                  <a class="navbar-brand" href="/"><img src="{{ asset('asset/images/logo.png') }}" alt=""></a>
                  {{ form_start(form, { 'attr': {'action': path('results')} }) }}
                 {{ form_widget(form) }}
                 {{ form_end(form) }}
@@ -69,6 +82,7 @@
             </div>
         </div>
     </nav>
+</div>
 {% endblock %}
 {% block stylesheets %}
     <style>

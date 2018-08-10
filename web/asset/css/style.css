@@ -1,9 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+}
+
 body {
 
-    background-color: #f8f9fa !important;
-    font-size:15px;
+    background-color:  #f8f9fa !important;
+    font-size:11px;
     display:inline;
-    font-family: Helvetica;
+    font-family: Arial;
+}
+#menu {
+
+    width: 960px;
+    margin: 0 auto;
+    background-color:  #f8f9fa;
+    position: relative;
+    z-index: 1000;
+    max-height: 155px;
+}
+#topBarConseil {
+    width: 29%;
+    text-align: right;
+        display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+#topBarRenseignement {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 70%;
+}
+#menu #topBar {
+    background-color: #2c2828;
+    border-bottom: 1px solid #979494;
+    color: #eee;
+    font-size: 13px;
+    clear: both;
+    padding: 0 10px;
 }
 
 #SearchProductName {
@@ -30,7 +68,6 @@ border: solid #ffdc6e 10px;
 border: solid #ffdc6e 10px;
 }
 
-}
 #searchPage {
     overflow: hidden;
     margin-top: 30px;
