@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% include '/default/menu.html.twig' %}
+    {% include 'menu.html.twig' %}
 
-    {% for u in user %}
-    {{ dump(u) }}
-        {{ u.username }}
+    {% for a in address %}
+    {{ dump(a) }}
     {% endfor %}
 
 
