@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'menu.html.twig' %}
+
+    {% for u in user %}
+    {{ dump(u) }}
+        {{ u.username }}
+    {% endfor %}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+
+    </style>
+{% endblock %}
