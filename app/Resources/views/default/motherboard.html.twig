@@ -1,18 +1,22 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Mémoire{% endblock %}
+{% block title %}Cartes Mères{% endblock %}
 
 {% block body %}
 
 
-<h1>Barrettes mémoire</h1>
-{% for vf in memory %}            
+<h1>Cartes Mères:</h1>
+{% for vf in motherboard %}            
     <li><strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong></li>
     <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{vf.quantity}}</li>
+     <li>{{ dump(vf) }}</li>
 {% endfor %}
 
 
+{% endblock %}
+{% block stylesheets %}
+<style>
 
-
+</style>
 {% endblock %}
