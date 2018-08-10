@@ -1,0 +1,282 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Address
+ *
+ * @ORM\Table(name="address")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AddressRepository")
+ */
+class Address
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="label", type="string", length=255, nullable=true)
+     */
+    private $label;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="firstAddress", type="string", length=255, nullable=true)
+     */
+    private $firstAddress;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="secondAddress", type="string", length=255, nullable=true)
+     */
+    private $secondAddress;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="zipCode", type="integer", nullable=true)
+     */
+    private $zipCode;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="phoneNumber", type="integer", nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="complementaryInformations", type="string", length=255, nullable=true)
+     */
+    private $complementaryInformations;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="billingAddress", type="string", length=255, nullable=true)
+     */
+    private $billingAddress;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="deliveryAddress", type="string", length=255, nullable=true)
+     */
+    private $deliveryAddress;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set label.
+     *
+     * @param string|null $label
+     *
+     * @return Address
+     */
+    public function setLabel($label = null)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get label.
+     *
+     * @return string|null
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set firstAddress.
+     *
+     * @param string|null $firstAddress
+     *
+     * @return Address
+     */
+    public function setFirstAddress($firstAddress = null)
+    {
+        $this->firstAddress = $firstAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get firstAddress.
+     *
+     * @return string|null
+     */
+    public function getFirstAddress()
+    {
+        return $this->firstAddress;
+    }
+
+    /**
+     * Set secondAddress.
+     *
+     * @param string|null $secondAddress
+     *
+     * @return Address
+     */
+    public function setSecondAddress($secondAddress = null)
+    {
+        $this->secondAddress = $secondAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get secondAddress.
+     *
+     * @return string|null
+     */
+    public function getSecondAddress()
+    {
+        return $this->secondAddress;
+    }
+
+    /**
+     * Set zipCode.
+     *
+     * @param int|null $zipCode
+     *
+     * @return Address
+     */
+    public function setZipCode($zipCode = null)
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipCode.
+     *
+     * @return int|null
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * Set phoneNumber.
+     *
+     * @param int|null $phoneNumber
+     *
+     * @return Address
+     */
+    public function setPhoneNumber($phoneNumber = null)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber.
+     *
+     * @return int|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Set complementaryInformations.
+     *
+     * @param string|null $complementaryInformations
+     *
+     * @return Address
+     */
+    public function setComplementaryInformations($complementaryInformations = null)
+    {
+        $this->complementaryInformations = $complementaryInformations;
+
+        return $this;
+    }
+
+    /**
+     * Get complementaryInformations.
+     *
+     * @return string|null
+     */
+    public function getComplementaryInformations()
+    {
+        return $this->complementaryInformations;
+    }
+
+    /**
+     * Set billingAddress.
+     *
+     * @param string|null $billingAddress
+     *
+     * @return Address
+     */
+    public function setBillingAddress($billingAddress = null)
+    {
+        $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get billingAddress.
+     *
+     * @return string|null
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress;
+    }
+
+    /**
+     * Set deliveryAddress.
+     *
+     * @param string|null $deliveryAddress
+     *
+     * @return Address
+     */
+    public function setDeliveryAddress($deliveryAddress = null)
+    {
+        $this->deliveryAddress = $deliveryAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get deliveryAddress.
+     *
+     * @return string|null
+     */
+    public function getDeliveryAddress()
+    {
+        return $this->deliveryAddress;
+    }
+}
