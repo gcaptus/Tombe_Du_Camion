@@ -24,9 +24,14 @@
                             Compte
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                            <a class="dropdown-item" href="/login">Connexion</a>
-                            <a class="dropdown-item" href="/register">Créer un compte</a>
+                            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                             <a class="dropdown-item" href="/profil">Votre compte</a>
+                             {% else %}
+                             <a class="dropdown-item" href="/login" id="connexion">Connexion</a>
+                             <a class="dropdown-item" href="/register">Créer un compte</a>
+                             {%endif%}
+                            
+                            
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -57,10 +62,10 @@
                         <a class="nav-link" href="#">CONFIGURATOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Processeur</a>
+                        <a class="nav-link" href="{{ path('cpu') }}">Processeur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carte mère</a>
+                        <a class="nav-link" href="{{ path('motherboard') }}">Carte mère</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('memory') }}">Mémoire</a>
