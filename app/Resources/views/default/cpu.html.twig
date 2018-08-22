@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Mémoire{% endblock %}
+{% block title %}CPU{% endblock %}
 
 {% block body %}
 
 
-<h1>Barrettes de mémoire:</h1>
-{% for vf in memory %}            
+<h1>Processeurs:</h1>
+{% for vf in cpu %}            
     <li><strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong></li>
     <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{vf.quantity}}</li>

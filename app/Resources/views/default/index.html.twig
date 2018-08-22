@@ -20,6 +20,7 @@
     <li><strong> Produit <a href="fiche/{{ p.designation }}">{{ p.designation }}</a> Fabriqué par {{ p.brand }} : </strong></li>
     <li> - Prix d'achat : {{p.buyingPrice}} Euros / Prix de vente : {{p.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{p.quantity}}</li>
+    <li>{{ dump(p) }}</li>
 {% endfor %}
 
     <h2>Meilleurs ventes</h2>
@@ -27,6 +28,7 @@
     <li><strong> Produit <a href="fiche/{{ mv.designation }}">{{ mv.designation }}</a> Fabriqué par {{ mv.brand }} : </strong></li>
     <li> - Prix d'achat : {{mv.buyingPrice}} Euros / Prix de vente : {{mv.sellingPrice}} Euros</li>
     <li>- Quantité disponible : {{mv.quantity}}</li>
+    <li>{{ dump(mv) }}</li>
 {% endfor %}
 
 {% endblock %}
