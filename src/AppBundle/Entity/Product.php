@@ -362,6 +362,7 @@ class Product
     {
         $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -430,5 +431,10 @@ class Product
     public function getMedias()
     {
         return $this->medias;
+    }
+
+    public function __toString()
+    {
+        return $this->getDesignation();
     }
 }
