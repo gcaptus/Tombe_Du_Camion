@@ -13,8 +13,11 @@ class UserController extends Controller
      */
     
     public function userAction($user) {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')){
         $user = $this->getDoctrine()->getEntityManager()->getRepository('AppBundle:User')->findBy(["id" => $user]);
+        
+        
 
-        return $this->render('default/Userprofile.html.twig', array('user' => $user));
+        return $this->render('default/Userprofile.html.twig', array('user' => $user));}
     }
 }
