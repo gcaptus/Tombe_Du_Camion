@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="category", type="string")
- * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory"})
+ * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory", "motherboard" = "MotherBoard"})
  */
 class Product
 {
