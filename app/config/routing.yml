@@ -27,3 +27,4 @@ cpu:
 motherboard:
   defaults: { _controller: AppBundle:Default:MotherBoard }
   path:      /motherboards
+
