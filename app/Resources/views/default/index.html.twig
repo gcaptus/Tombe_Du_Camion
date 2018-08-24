@@ -5,43 +5,18 @@
 <h1>Les promos tombées du camion !</h1>
     <h2>Ventes flash</h2>
 
-
-
-
-
-{% for vf in venteflash %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{ vf.medias.first.url }} alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title"><a href="fiche/{{ vf.designation }}">{{ vf.designation }}</a></h5>
-            <p class="card-text">Fabriqué par {{ vf.brand }}<br>
-                Prix de vente : {{vf.sellingPrice}} Euros</p>
-        </div>
-    </div>
+{% for p in venteflash %}
+    {% include 'default/card.html.twig' %}
 {% endfor %}
 
     <h2>Promos</h2>
 {% for p in promo %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{ p.medias.first.url }} alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title"><a href="fiche/{{ p.designation }}">{{ p.designation }}</a></h5>
-            <p class="card-text">Fabriqué par {{ p.brand }}<br>
-                Prix de vente : {{p.sellingPrice}} Euros</p>
-        </div>
-    </div>
+    {% include 'default/card.html.twig' %}
 {% endfor %}
 
     <h2>Meilleurs ventes</h2>
-{% for mv in topvente %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{ mv.medias.first.url }} alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title"><a href="fiche/{{ mv.designation }}">{{ mv.designation }}</a></h5>
-            <p class="card-text">Fabriqué par {{ mv.brand }}<br>
-                Prix de vente : {{mv.sellingPrice}} Euros</p>
-        </div>
-    </div>
+{% for p in topvente %}
+    {% include 'default/card.html.twig' %}
 {% endfor %}
 
 {% endblock %}
