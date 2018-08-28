@@ -74,6 +74,7 @@ easy_admin:
         - AppBundle\Entity\User
         - AppBundle\Entity\Cpu
         - AppBundle\Entity\Memory
+        - AppBundle\Entity\MotherBoard
         - AppBundle\Entity\Media
         - AppBundle\Entity\Provider
         - AppBundle\Entity\Address

@@ -435,6 +435,6 @@ class Product
 
     public function __toString()
     {
-        return $this->getDesignation();
+        return get_class($this);
     }
 }
