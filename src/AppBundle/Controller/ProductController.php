@@ -15,6 +15,7 @@ class ProductController extends Controller
     $product = $em->getRepository('AppBundle:Product')->findProduct($slug);
 
     return $this->render('default/fileProduct.html.twig', array(
-    'product' => $product));
+    'product' => $product
+    ));
     }
 }

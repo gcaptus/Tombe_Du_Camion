@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use http\Url;
 
 /**
  * Media
@@ -22,9 +23,9 @@ class Media
     private $id;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="url", type="array", nullable=true)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
@@ -35,10 +36,11 @@ class Media
     private $product;
 
 
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -48,7 +50,7 @@ class Media
     /**
      * Set url
      *
-     * @param array $url
+     * @param string $url
      *
      * @return Media
      */
@@ -62,7 +64,7 @@ class Media
     /**
      * Get url
      *
-     * @return array
+     * @return string
      */
     public function getUrl()
     {
@@ -92,4 +94,15 @@ class Media
     {
         return $this->product;
     }
+
+    /**
+     * __tostring
+     *
+     * @return Url
+     */
+    public function __toString()
+    {
+        return $this->getUrl();
+    }
+
 }

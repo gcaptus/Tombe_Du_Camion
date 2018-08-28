@@ -7,20 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MotherBoard
  *
- * @ORM\Table(name="mother_board")
+ * @ORM\Table(name="motherboard")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MotherBoardRepository")
  */
 class MotherBoard extends Product
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var string
      *
@@ -76,17 +67,7 @@ class MotherBoard extends Product
      * @ORM\Column(name="multiGPUSlot", type="string", length=255, nullable=true)
      */
     private $multiGPUSlot;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    
 
     /**
      * Set model
