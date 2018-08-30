@@ -63,3 +63,15 @@ padding: 10px;
 .border {
     border-bottom: solid #ffdc6e 10px; 
 }
+
+#Profil {
+    margin-top:4%;
+    display:flex;
+margin-left: 40%;
+    box-sizing: border-box;
+margin-right:45%;
+border: solid #ffdc6e 10px;
+text-align: center;
+padding-left:20px;
+padding-bottom: 10px;
+}
