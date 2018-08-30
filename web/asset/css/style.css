@@ -1,24 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    outline: none;
-}
 
-body {
-    width:75%;
-    background-color:  #f8f9fa !important;
-    font-size:11px;
-    display:inline;
-    font-family: Arial;
-}
-#menu {
-
-    margin: 0 auto;
-    background-color:  #f8f9fa;
-    position: relative;
-
-}
 #SearchProductName {
     padding-top:5px;
 }
