@@ -79,3 +79,7 @@ padding: 10px;
 
 
 }
+
+.border {
+    border-bottom: solid #ffdc6e 10px; 
+}
