@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * cartProduct
+ * CartProduct
  *
  * @ORM\Table(name="cart_product")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\cartProductRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CartProductRepository")
  */
-class cartProduct
+class CartProduct
 {
     /**
      * @var int
@@ -35,6 +35,12 @@ class cartProduct
      */
     private $total;
 
+    /**
+     * Many CartProducts have One Cart
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="cartProduct")
+     */
+    private $cart;
+
 
     /**
      * Get id
@@ -51,7 +57,7 @@ class cartProduct
      *
      * @param integer $itemNumber
      *
-     * @return cartProduct
+     * @return CartProduct
      */
     public function setItemNumber($itemNumber)
     {
@@ -75,7 +81,7 @@ class cartProduct
      *
      * @param float $total
      *
-     * @return cartProduct
+     * @return CartProduct
      */
     public function setTotal($total)
     {
@@ -94,4 +100,3 @@ class cartProduct
         return $this->total;
     }
 }
-
