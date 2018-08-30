@@ -6,22 +6,17 @@
   <div class="row">
     <div class="col">
     <h2>Ventes flash</h2>
-{% for vf in venteflash %}            
-    <li><strong> Produit <a href="fiche/{{ vf.designation }}">{{ vf.designation }}</a>  Fabriqué par {{ vf.brand }} : </strong></li>
-    <li> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros</li>
-    <li>- Quantité disponible : {{vf.quantity}}</li>
-    <li>{{ dump(vf) }}</li>
+
+{% for p in venteflash %}
+    {% include 'default/card.html.twig' %}
 {% endfor %}
 </div>
     </div>
     <div class="row">
     <div class="col">
     <h2>Promos</h2>
-{% for p in promo %}            
-    <li><strong> Produit <a href="fiche/{{ p.designation }}">{{ p.designation }}</a> Fabriqué par {{ p.brand }} : </strong></li>
-    <li> - Prix d'achat : {{p.buyingPrice}} Euros / Prix de vente : {{p.sellingPrice}} Euros</li>
-    <li>- Quantité disponible : {{p.quantity}}</li>
-    <li>{{ dump(p) }}</li>
+{% for p in promo %}
+    {% include 'default/card.html.twig' %}
 {% endfor %}
     </div>
 </div>
@@ -29,11 +24,8 @@
     <div class="col">
 
     <h2>Meilleurs ventes</h2>
-{% for mv in topvente %}            
-    <li><strong> Produit <a href="fiche/{{ mv.designation }}">{{ mv.designation }}</a> Fabriqué par {{ mv.brand }} : </strong></li>
-    <li> - Prix d'achat : {{mv.buyingPrice}} Euros / Prix de vente : {{mv.sellingPrice}} Euros</li>
-    <li>- Quantité disponible : {{mv.quantity}}</li>
-    <li>{{ dump(mv) }}</li>
+{% for p in topvente %}
+    {% include 'default/card.html.twig' %}
 {% endfor %}
     </div>
 </div>
