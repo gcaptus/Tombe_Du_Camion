@@ -1,46 +1,47 @@
-body {
-
-    background-color: #f8f9fa !important;
-    font-size:15px;
-    display:inline;
-    font-family: Helvetica;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
 }
 
+body {
+    width:75%;
+    background-color:  #f8f9fa !important;
+    font-size:11px;
+    display:inline;
+    font-family: Arial;
+}
+#menu {
+
+    margin: 0 auto;
+    background-color:  #f8f9fa;
+    position: relative;
+
+}
 #SearchProductName {
     padding-top:5px;
 }
+
 #SearchQuantity {
     padding-bottom:5px;
     border-bottom: solid #ffdc6e 10px;
 }
 #recherche {
-    margin-left: 20px;
+
     text-align: center;
-    float: left;
-width: 690px;
-    box-sizing: border-box;
 border: solid #ffdc6e 10px;
 }
 
 #Filtre {
     text-align: center;
-    width: 220px;
-    float:left;
-        box-sizing: border-box;
 border: solid #ffdc6e 10px;
 }
 
-}
 #searchPage {
-    overflow: hidden;
-    margin-top: 30px;
     border-top: 1px solid #bbb;
-    padding-top: 20px;
 }
 #search {
-    width: 978px;
-    margin: 0 auto 5px;
-    padding-top: 17px;
     border-right: 1px solid #e0e0e0;
     border-left: 1px solid #e0e0e0;
     cursor: default;
@@ -51,9 +52,10 @@ border: solid #ffdc6e 10px;
     margin-bottom:2%;
      margin-left:30%;
      margin-right:30%;
-
 }
-
+#recherche {
+    margin-left: 50px;
+}
 #form_Recherche{
     background-color:green;
 }
@@ -77,17 +79,7 @@ padding: 10px;
 
 
 }
-@media (max-width: 480px) {
-    #pute {
-        top: 50%; /* IMPORTANT */
-        left: 50%; /* IMPORTANT */
-        display: block;
-        position: absolute;
-        background: url(images/background.png) no-repeat center center;
-        width: 750px;
-        height: 417px;
 
-        margin-top: -208.5px; /* HALF OF THE HEIGHT */
-        margin-left: -375px; /* HALF OF THE WIDTH */
-    }
+.border {
+    border-bottom: solid #ffdc6e 10px; 
 }

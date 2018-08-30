@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-
+<div id="pute" name="pute">
     {% for u in user %}
+    	user {{ u.username }} Email {{ u.email }} :
     {{ dump(u) }}
         {{ u.username }}
     {% endfor %}
-
+</div>
 
 {% endblock %}
 
@@ -15,3 +16,5 @@
 
     </style>
 {% endblock %}
+
+
