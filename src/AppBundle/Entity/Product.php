@@ -451,4 +451,18 @@ class Product
     {
         return $this->cat;
     }
+
+    /**
+     * Set cat
+     *
+     * @param string $cat
+     *
+     * @return Product
+     */
+    public function setCat($cat)
+    {
+        $this->cat = $cat;
+
+        return $this;
+    }
 }
