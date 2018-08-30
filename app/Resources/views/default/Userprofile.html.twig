@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-<div id="pute" name="pute">
+<div id="Profil" name="pute">
     {% for u in user %}
-    	user {{ u.username }} Email {{ u.email }} :
-    {{ dump(u) }}
-        {{ u.username }}
+    <ul type="hidden">
+    	<li>{{ u.username }}</li>
+    <li>{{ u.email }}</li>
+    <li>Nom : {{ u.firstName}} </li>
+    <li>Prénom : {{u.lastName}} </li>
+    <li>Date de naissance : {{u.birthDate}}</li>
+</ul>
     {% endfor %}
 </div>
 
@@ -13,7 +17,17 @@
 
 {% block stylesheets %}
     <style>
-
+#Profil {
+	margin-top:4%;
+	display:flex;
+margin-left: 40%;
+    box-sizing: border-box;
+margin-right:45%;
+border: solid #ffdc6e 10px;
+text-align: center;
+padding-left:20px;
+padding-bottom: 10px;
+}
     </style>
 {% endblock %}
 
