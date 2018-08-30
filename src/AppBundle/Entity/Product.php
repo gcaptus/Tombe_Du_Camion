@@ -104,6 +104,13 @@ class Product
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="product")
      */
     private $medias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cat", type="string", length=255)
+     */
+    private $cat;
     
     /**
      * Get id
@@ -436,5 +443,26 @@ class Product
     public function __toString()
     {
         return get_class($this);
+    }
+
+    /**
+     * @return string
+     */public function getCat()
+    {
+        return $this->cat;
+    }
+
+    /**
+     * Set cat
+     *
+     * @param string $cat
+     *
+     * @return Product
+     */
+    public function setCat($cat)
+    {
+        $this->cat = $cat;
+
+        return $this;
     }
 }

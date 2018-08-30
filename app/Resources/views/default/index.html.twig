@@ -2,22 +2,38 @@
 
 {% block body %}
 
-<h1>Les promos tombées du camion !</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
     <h2>Ventes flash</h2>
 
 {% for p in venteflash %}
     {% include 'default/card.html.twig' %}
 {% endfor %}
-
+</div>
+    </div>
+    <div class="row">
+    <div class="col">
     <h2>Promos</h2>
 {% for p in promo %}
     {% include 'default/card.html.twig' %}
 {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
 
     <h2>Meilleurs ventes</h2>
 {% for p in topvente %}
     {% include 'default/card.html.twig' %}
 {% endfor %}
+    </div>
+</div>
+  </div>
+</div>
+
+
+
 
 {% endblock %}
 
