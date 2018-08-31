@@ -201,4 +201,38 @@ class User extends BaseUser
     {
         return $this->paiementTypes;
     }
+
+    /**
+     * Add address
+     *
+     * @param \AppBundle\Entity\Address $address
+     *
+     * @return User
+     */
+    public function addAddress(\AppBundle\Entity\Address $address)
+    {
+        $this->addresses[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \AppBundle\Entity\Address $address
+     */
+    public function removeAddress(\AppBundle\Entity\Address $address)
+    {
+        $this->addresses->removeElement($address);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
 }
