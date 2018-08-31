@@ -79,7 +79,7 @@ class Cart
 
     /**
      * One Cart has Many CartProducts.
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="cartProduct")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="cart")
      */
     private $cartProduct;
 

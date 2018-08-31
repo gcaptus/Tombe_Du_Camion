@@ -95,7 +95,7 @@ class Product
 
     /**
      * Many Products have Many Providers
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", inversedBy="products")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Provider", mappedBy="products")
      */
     private $providers;
 
