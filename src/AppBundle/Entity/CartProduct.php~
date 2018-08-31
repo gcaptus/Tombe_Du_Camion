@@ -41,6 +41,12 @@ class CartProduct
      */
     private $cart;
 
+    /**
+     * Many CartProducts have One Product
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="cartProducts")
+     */
+    private $product;
+
 
     /**
      * Get id
@@ -98,5 +104,29 @@ class CartProduct
     public function getTotal()
     {
         return $this->total;
+    }
+
+    /**
+     * Set cart
+     *
+     * @param \AppBundle\Entity\Cart $cart
+     *
+     * @return CartProduct
+     */
+    public function setCart(\AppBundle\Entity\Cart $cart = null)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Get cart
+     *
+     * @return \AppBundle\Entity\Cart
+     */
+    public function getCart()
+    {
+        return $this->cart;
     }
 }

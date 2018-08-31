@@ -49,6 +49,12 @@ class User extends BaseUser
      */
     private $gender;
 
+    /**
+     * One User have Many PaiementTypes
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PaiementType", mappedBy="user")
+     */
+    private $paiementTypes;
+
 
     /**
      * Get id.
@@ -154,5 +160,39 @@ class User extends BaseUser
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Add paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     *
+     * @return User
+     */
+    public function addPaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes[] = $paiementType;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     */
+    public function removePaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes->removeElement($paiementType);
+    }
+
+    /**
+     * Get paiementTypes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiementTypes()
+    {
+        return $this->paiementTypes;
     }
 }

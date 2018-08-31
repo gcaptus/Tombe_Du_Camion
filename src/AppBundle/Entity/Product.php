@@ -111,6 +111,12 @@ class Product
      * @ORM\Column(name="cat", type="string", length=255)
      */
     private $cat;
+
+    /**
+     * One Product have Many CartProducts
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="product")
+     */
+    private $cartProducts;
     
     /**
      * Get id
@@ -464,5 +470,39 @@ class Product
         $this->cat = $cat;
 
         return $this;
+    }
+
+    /**
+     * Add cartProduct
+     *
+     * @param \AppBundle\Entity\CartProduct $cartProduct
+     *
+     * @return Product
+     */
+    public function addCartProduct(\AppBundle\Entity\CartProduct $cartProduct)
+    {
+        $this->cartProducts[] = $cartProduct;
+
+        return $this;
+    }
+
+    /**
+     * Remove cartProduct
+     *
+     * @param \AppBundle\Entity\CartProduct $cartProduct
+     */
+    public function removeCartProduct(\AppBundle\Entity\CartProduct $cartProduct)
+    {
+        $this->cartProducts->removeElement($cartProduct);
+    }
+
+    /**
+     * Get cartProducts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCartProducts()
+    {
+        return $this->cartProducts;
     }
 }

@@ -24,30 +24,36 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="firstName", type="string", length=255, nullable=true)
      */
     private $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=255)
+     * @ORM\Column(name="lastName", type="string", length=255, nullable=true)
      */
     private $lastName;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="birthDate", type="datetime")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="gender", type="boolean")
+     * @ORM\Column(name="gender", type="boolean", nullable=true)
      */
     private $gender;
+
+    /**
+     * One User have Many PaiementTypes
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PaiementType", mappedBy="user")
+     */
+    private $paiementTypes;
 
 
     /**
@@ -111,7 +117,7 @@ class User extends BaseUser
     /**
      * Set birthDate.
      *
-     * @param \DateTime $birthDate
+     * @param \Date $birthDate
      *
      * @return User
      */
@@ -125,7 +131,7 @@ class User extends BaseUser
     /**
      * Get birthDate.
      *
-     * @return \DateTime
+     * @return \Date
      */
     public function getBirthDate()
     {
