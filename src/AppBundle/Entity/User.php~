@@ -24,30 +24,42 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="firstName", type="string", length=255, nullable=true)
      */
     private $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=255)
+     * @ORM\Column(name="lastName", type="string", length=255, nullable=true)
      */
     private $lastName;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="birthDate", type="datetime")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="gender", type="boolean")
+     * @ORM\Column(name="gender", type="boolean", nullable=true)
      */
     private $gender;
+
+    /**
+     * One User have Many PaiementTypes
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PaiementType", mappedBy="user")
+     */
+    private $paiementTypes;
+
+    /**
+     * One User have Many Addresses
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="user")
+     */
+    private $addresses;
 
 
     /**
@@ -111,7 +123,7 @@ class User extends BaseUser
     /**
      * Set birthDate.
      *
-     * @param \DateTime $birthDate
+     * @param \Date $birthDate
      *
      * @return User
      */
@@ -125,7 +137,7 @@ class User extends BaseUser
     /**
      * Get birthDate.
      *
-     * @return \DateTime
+     * @return \Date
      */
     public function getBirthDate()
     {
@@ -154,5 +166,39 @@ class User extends BaseUser
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Add paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     *
+     * @return User
+     */
+    public function addPaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes[] = $paiementType;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     */
+    public function removePaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes->removeElement($paiementType);
+    }
+
+    /**
+     * Get paiementTypes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiementTypes()
+    {
+        return $this->paiementTypes;
     }
 }

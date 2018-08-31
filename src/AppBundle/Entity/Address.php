@@ -77,6 +77,12 @@ class Address
      */
     private $deliveryAddress;
 
+    /**
+     * Many Addresses have one User
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="addresses")
+     */
+    private $User;
+
 
     /**
      * Get id.
@@ -278,5 +284,29 @@ class Address
     public function getDeliveryAddress()
     {
         return $this->deliveryAddress;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Address
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->User = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->User;
     }
 }
