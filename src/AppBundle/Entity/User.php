@@ -55,6 +55,12 @@ class User extends BaseUser
      */
     private $paiementTypes;
 
+    /**
+     * One User have Many Addresses
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="user")
+     */
+    private $addresses;
+
 
     /**
      * Get id.

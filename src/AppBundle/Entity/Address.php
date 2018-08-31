@@ -77,6 +77,12 @@ class Address
      */
     private $deliveryAddress;
 
+    /**
+     * Many Addresses have one User
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="addresses")
+     */
+    private $User;
+
 
     /**
      * Get id.
