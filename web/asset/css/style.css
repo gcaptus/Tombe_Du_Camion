@@ -1,5 +1,30 @@
-body {
-    font-family: Helvetica;
+
+#SearchProductName {
+    padding-top:5px;
+}
+
+#SearchQuantity {
+    padding-bottom:5px;
+    border-bottom: solid #ffdc6e 10px;
+}
+#recherche {
+
+    text-align: center;
+border: solid #ffdc6e 10px;
+}
+
+#Filtre {
+    text-align: center;
+border: solid #ffdc6e 10px;
+}
+
+#searchPage {
+    border-top: 1px solid #bbb;
+}
+#search {
+    border-right: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    cursor: default;
 }
 
 #pute {
@@ -7,7 +32,12 @@ body {
     margin-bottom:2%;
      margin-left:30%;
      margin-right:30%;
-
+}
+#recherche {
+    margin-left: 50px;
+}
+#form_Recherche{
+    background-color:green;
 }
 .LoginForm {
     padding:20px;
@@ -29,17 +59,19 @@ padding: 10px;
 
 
 }
-@media (max-width: 480px) {
-    #pute {
-        top: 50%; /* IMPORTANT */
-        left: 50%; /* IMPORTANT */
-        display: block;
-        position: absolute;
-        background: url(images/background.png) no-repeat center center;
-        width: 750px;
-        height: 417px;
 
-        margin-top: -208.5px; /* HALF OF THE HEIGHT */
-        margin-left: -375px; /* HALF OF THE WIDTH */
-    }
+.border {
+    border-bottom: solid #ffdc6e 10px; 
+}
+
+#Profil {
+    margin-top:4%;
+    display:flex;
+margin-left: 40%;
+    box-sizing: border-box;
+margin-right:45%;
+border: solid #ffdc6e 10px;
+text-align: center;
+padding-left:20px;
+padding-bottom: 10px;
 }
