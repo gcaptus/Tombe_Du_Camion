@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="category", type="string")
- * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory"})
+ * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory", "motherboard" = "MotherBoard"})
  */
 class Product
 {
@@ -104,6 +104,13 @@ class Product
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="product")
      */
     private $medias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cat", type="string", length=255)
+     */
+    private $cat;
     
     /**
      * Get id
@@ -362,6 +369,7 @@ class Product
     {
         $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -430,5 +438,31 @@ class Product
     public function getMedias()
     {
         return $this->medias;
+    }
+
+    public function __toString()
+    {
+        return get_class($this);
+    }
+
+    /**
+     * @return string
+     */public function getCat()
+    {
+        return $this->cat;
+    }
+
+    /**
+     * Set cat
+     *
+     * @param string $cat
+     *
+     * @return Product
+     */
+    public function setCat($cat)
+    {
+        $this->cat = $cat;
+
+        return $this;
     }
 }

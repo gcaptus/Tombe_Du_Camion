@@ -166,4 +166,9 @@ class Cpu extends Product
     {
         return $this->memoryControl;
     }
+
+    public function __toString()
+    {
+        return parent::__toString();
+    }
 }

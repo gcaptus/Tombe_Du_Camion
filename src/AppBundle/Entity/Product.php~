@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="category", type="string")
- * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory"})
+ * @ORM\DiscriminatorMap({"product" = "Product", "cpu" = "Cpu", "memory" = "Memory", "motherboard" = "MotherBoard"})
  */
 class Product
 {
@@ -104,6 +104,13 @@ class Product
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Media", mappedBy="product")
      */
     private $medias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cat", type="string", length=255)
+     */
+    private $cat;
     
     /**
      * Get id
@@ -353,5 +360,95 @@ class Product
     public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+    /**
+     * Add provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     *
+     * @return Product
+     */
+    public function addProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers[] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Remove provider
+     *
+     * @param \AppBundle\Entity\Provider $provider
+     */
+    public function removeProvider(\AppBundle\Entity\Provider $provider)
+    {
+        $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Get providers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProviders()
+    {
+        return $this->providers;
+    }
+
+    /**
+     * Add media
+     *
+     * @param \AppBundle\Entity\Media $media
+     *
+     * @return Product
+     */
+    public function addMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \AppBundle\Entity\Media $media
+     */
+    public function removeMedia(\AppBundle\Entity\Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias()
+    {
+        return $this->medias;
+    }
+
+    public function __toString()
+    {
+        return get_class($this);
+    }
+
+    /**
+     * @return string
+     */public function getCat()
+    {
+        return $this->cat;
     }
 }
