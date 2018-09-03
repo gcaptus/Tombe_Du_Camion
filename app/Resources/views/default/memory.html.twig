@@ -46,7 +46,7 @@
 	<div id="recherche" class="col-8">
 
 {% for vf in memory %}            
-    <div id="SearchPicture"> </div>       
+    <div id="SearchPicture"> </div>     <a href="fiche/{{ vf.designation }}">{{ vf.designation }}</a>  
    <div id="SearchProductName"> <strong> Produit {{ vf.designation }} Fabriqué par {{ vf.brand }} : </strong> </div>
     <div id="SearchBuyingPrice"> - Prix d'achat : {{vf.buyingPrice}} Euros / Prix de vente : {{vf.sellingPrice}} Euros </div>
     <div id ="SearchQuantity"> Quantité disponible : {{vf.quantity}} </div>
