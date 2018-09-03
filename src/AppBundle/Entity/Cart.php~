@@ -79,7 +79,7 @@ class Cart
 
     /**
      * One Cart has Many CartProducts.
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="cart")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="cartProduct")
      */
     private $cartProduct;
 
@@ -331,29 +331,5 @@ class Cart
     public function getCartProduct()
     {
         return $this->cartProduct;
-    }
-
-    /**
-     * Set paiementType
-     *
-     * @param \AppBundle\Entity\PaiementType $paiementType
-     *
-     * @return Cart
-     */
-    public function setPaiementType(\AppBundle\Entity\PaiementType $paiementType = null)
-    {
-        $this->paiementType = $paiementType;
-
-        return $this;
-    }
-
-    /**
-     * Get paiementType
-     *
-     * @return \AppBundle\Entity\PaiementType
-     */
-    public function getPaiementType()
-    {
-        return $this->paiementType;
     }
 }

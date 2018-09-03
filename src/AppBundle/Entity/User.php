@@ -49,6 +49,18 @@ class User extends BaseUser
      */
     private $gender;
 
+    /**
+     * One User have Many PaiementTypes
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PaiementType", mappedBy="user")
+     */
+    private $paiementTypes;
+
+    /**
+     * One User have Many Addresses
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="user")
+     */
+    private $addresses;
+
 
     /**
      * Get id.
@@ -154,5 +166,73 @@ class User extends BaseUser
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Add paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     *
+     * @return User
+     */
+    public function addPaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes[] = $paiementType;
+
+        return $this;
+    }
+
+    /**
+     * Remove paiementType
+     *
+     * @param \AppBundle\Entity\PaiementType $paiementType
+     */
+    public function removePaiementType(\AppBundle\Entity\PaiementType $paiementType)
+    {
+        $this->paiementTypes->removeElement($paiementType);
+    }
+
+    /**
+     * Get paiementTypes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaiementTypes()
+    {
+        return $this->paiementTypes;
+    }
+
+    /**
+     * Add address
+     *
+     * @param \AppBundle\Entity\Address $address
+     *
+     * @return User
+     */
+    public function addAddress(\AppBundle\Entity\Address $address)
+    {
+        $this->addresses[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \AppBundle\Entity\Address $address
+     */
+    public function removeAddress(\AppBundle\Entity\Address $address)
+    {
+        $this->addresses->removeElement($address);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
     }
 }
