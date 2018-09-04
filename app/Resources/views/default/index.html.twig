@@ -1,36 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<div class="container">
-  <div class="row">
-    <div class="w-100 d-none d-md-block">
-    <h2>Ventes flash</h2>
-
-{% for p in venteflash %}
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Ventes flash</h5>
+      <p class="card-text">{% for p in venteflash %}
     {% include 'default/card.html.twig' %}
-{% endfor %}
-</div>
+{% endfor %}</p>
     </div>
-    <div class="row">
-    <div class="w-100 d-none d-md-block">
-    <h2>Promos</h2>
-{% for p in promo %}
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Promo</h5>
+      <p class="card-text">{% for p in promo %}
     {% include 'default/card.html.twig' %}
-{% endfor %}
+{% endfor %}</p>
     </div>
-</div>
-<div class="row">
-    <div class="w-100 d-none d-md-block">
-
-    <h2>Meilleurs ventes</h2>
-{% for p in topvente %}
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Top vente</h5>
+      <p class="card-text">{% for p in topvente %}
     {% include 'default/card.html.twig' %}
-{% endfor %}
+{% endfor %}</p>
     </div>
-</div>
   </div>
 </div>
+
 
 
 {% endblock %}
