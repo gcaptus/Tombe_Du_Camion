@@ -1,9 +1,9 @@
 <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title"><a href="fiche/{{ p.designation }}">{{ p.designation }}</a></h5>
+        <h5 class="card-title" data-designation = "{{ p.designation }}"><a href="fiche/{{ p.designation }}">{{ p.designation }}</a></h5>
         <p class="card-text">Fabriqué par {{ p.brand }}<br>
             Prix de vente : {{p.sellingPrice}} Euros</p>
-        <a href="..." class="btn btn-primary">Ajouter dans le panier</a>
+        <a href="" class="btn btn-primary" id="add-to-cart">Ajouter dans le panier</a>
     </div>
 </div>
