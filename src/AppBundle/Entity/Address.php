@@ -81,7 +81,7 @@ class Address
      * Many Addresses have one User
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="addresses")
      */
-    private $User;
+    private $user;
 
 
     /**
@@ -295,7 +295,7 @@ class Address
      */
     public function setUser(\AppBundle\Entity\User $user = null)
     {
-        $this->User = $user;
+        $this->user = $user;
 
         return $this;
     }
@@ -307,7 +307,7 @@ class Address
      */
     public function getUser()
     {
-        return $this->User;
+        return $this->user;
     }
 
     public function __toString() {
