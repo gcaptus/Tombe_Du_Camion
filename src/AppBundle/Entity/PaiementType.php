@@ -249,4 +249,8 @@ class PaiementType
     {
         return $this->user;
     }
+
+    public function __toString() {
+        return $this->designation;
+    }
 }

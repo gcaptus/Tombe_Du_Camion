@@ -446,9 +446,8 @@ class Product
         return $this->medias;
     }
 
-    public function __toString()
-    {
-        return get_class($this);
+    public function __toString() {
+        return $this->designation;
     }
 
     /**

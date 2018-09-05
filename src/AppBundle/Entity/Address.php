@@ -309,4 +309,8 @@ class Address
     {
         return $this->User;
     }
+
+    public function __toString() {
+        return $this->label;
+    }
 }
