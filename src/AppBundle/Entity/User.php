@@ -235,4 +235,8 @@ class User extends BaseUser
     {
         return $this->addresses;
     }
+
+    public function __toString() {
+        return $this->lastName;
+    }
 }

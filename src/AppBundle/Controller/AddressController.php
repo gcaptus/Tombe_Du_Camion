@@ -13,8 +13,7 @@ class AddressController extends Controller
     public function addressAction($slug)
     {
         $address = $this->getDoctrine()->getEntityManager()->getRepository('AppBundle:Address')->findBy(['id' => $slug]);
-        return $this->render('default/Useraddress.html.twig', array('address' => $address
-        ));
+        return $this->render('default/Useraddress.html.twig', array('address' => $address));
     }
 
 }
