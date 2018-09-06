@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="w-100 d-none d-md-block">
     <h2>Ventes flash</h2>
 
 {% for p in venteflash %}
@@ -13,7 +13,7 @@
 </div>
     </div>
     <div class="row">
-    <div class="col">
+    <div class="w-100 d-none d-md-block">
     <h2>Promos</h2>
 {% for p in promo %}
     {% include 'default/card.html.twig' %}
@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col">
+    <div class="w-100 d-none d-md-block">
 
     <h2>Meilleurs ventes</h2>
 {% for p in topvente %}
@@ -31,8 +31,6 @@
 </div>
   </div>
 </div>
-
-
 
 
 {% endblock %}
