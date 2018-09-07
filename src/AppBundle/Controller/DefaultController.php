@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class DefaultController extends Controller
 {
@@ -44,20 +45,65 @@ class DefaultController extends Controller
         $formBuilder = $this->createFormBuilder();
         $formBuilder
             ->add('Rechercher', SearchType::class)
-            ->add('save',      SubmitType::class, array('label' => 'Rechercher'));
+
+            ->add('Categories', ChoiceType::class, array(
+              
+                'choices'  => array(
+                'All' => "All",
+                'Cpu' => "Cpu",
+                 'Memory' => "Memory",
+                'Motherboard' => "Motherboard",
+
+                ),
+))
+            ->add('save',      SubmitType::class, array('label' => "Rechercher"))
+
+        ;
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        $em = $this->getDoctrine()->getEntityManager();
+      
+
+            if ($form->isSubmitted() && $form->isValid())
+        {  
+
+
             $res = $form->getData();
             $key = $res['Rechercher'];
-            $em = $this->getDoctrine()->getEntityManager();
-            $product = $em->getRepository('AppBundle:Product')->findProduct($key);
+            $filter = $res['Categories'];
+           
+           if ($filter === "Memory") {
+               $product = $em->getRepository('AppBundle:Memory')->findProduct($key);
+           }
+           elseif ($filter === "Cpu") {
+               $product = $em->getRepository('AppBundle:Cpu')->findProduct($key);
+           }
+           elseif ($filter === "Motherboard") {
+               $product = $em->getRepository('AppBundle:MotherBoard')->findProduct($key);
+           }
+           elseif ($filter === "All") {
+               $product = $em->getRepository('AppBundle:Product')->findProduct($key);
+           }
+
+
+
+            
+             
+            
+            
             return $this->render('default/results.html.twig', array(
                 'form' => $form->createView(),
-                'product' => $product,
-            ));
-        }
-        else{
+               'product' => $product,
+
+             ));
+         }
+
+
+
+         else
+
+         {
             return $this->render('default/menu.html.twig', array(
                 'form' => $form->createView(),
             ));
