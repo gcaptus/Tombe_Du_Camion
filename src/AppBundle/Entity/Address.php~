@@ -77,6 +77,12 @@ class Address
      */
     private $deliveryAddress;
 
+    /**
+     * Many Addresses have one User
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="addresses")
+     */
+    private $User;
+
 
     /**
      * Get id.
@@ -95,7 +101,7 @@ class Address
      *
      * @return Address
      */
-    public function setlabel($label = null)
+    public function setLabel($label = null)
     {
         $this->label = $label;
 
@@ -107,7 +113,7 @@ class Address
      *
      * @return string|null
      */
-    public function getlabel()
+    public function getLabel()
     {
         return $this->label;
     }

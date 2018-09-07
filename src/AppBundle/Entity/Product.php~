@@ -111,6 +111,12 @@ class Product
      * @ORM\Column(name="cat", type="string", length=255)
      */
     private $cat;
+
+    /**
+     * One Product have Many CartProducts
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartProduct", mappedBy="product")
+     */
+    private $cartProducts;
     
     /**
      * Get id
@@ -450,5 +456,19 @@ class Product
      */public function getCat()
     {
         return $this->cat;
+    }
+
+    /**
+     * Set cat
+     *
+     * @param string $cat
+     *
+     * @return Product
+     */
+    public function setCat($cat)
+    {
+        $this->cat = $cat;
+
+        return $this;
     }
 }

@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * cartProduct
+ * CartProduct
  *
  * @ORM\Table(name="cart_product")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\cartProductRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CartProductRepository")
  */
-class cartProduct
+class CartProduct
 {
     /**
      * @var int
@@ -35,6 +35,18 @@ class cartProduct
      */
     private $total;
 
+    /**
+     * Many CartProducts have One Cart
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="cartProduct")
+     */
+    private $cart;
+
+    /**
+     * Many CartProducts have One Product
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="cartProducts")
+     */
+    private $product;
+
 
     /**
      * Get id
@@ -51,7 +63,7 @@ class cartProduct
      *
      * @param integer $itemNumber
      *
-     * @return cartProduct
+     * @return CartProduct
      */
     public function setItemNumber($itemNumber)
     {
@@ -75,7 +87,7 @@ class cartProduct
      *
      * @param float $total
      *
-     * @return cartProduct
+     * @return CartProduct
      */
     public function setTotal($total)
     {
@@ -93,5 +105,28 @@ class cartProduct
     {
         return $this->total;
     }
-}
 
+    /**
+     * Set cart
+     *
+     * @param \AppBundle\Entity\Cart $cart
+     *
+     * @return CartProduct
+     */
+    public function setCart(\AppBundle\Entity\Cart $cart = null)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Get cart
+     *
+     * @return \AppBundle\Entity\Cart
+     */
+    public function getCart()
+    {
+        return $this->cart;
+    }
+}
