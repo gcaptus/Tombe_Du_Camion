@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class MotherBoardRepository extends \Doctrine\ORM\EntityRepository
 {
+	    public function findProduct($key)
+    {
+         $em = $this->getEntityManager();
+        //$query = $em->createQuery('SELECT u FROM AppBundle:Product u WHERE u.brand LIKE :name')
+         $query = $this->createQueryBuilder('p')
+        ->andWhere('p.designation LIKE :name OR p.brand LIKE :name OR p.size LIKE :name')
+        ->setParameter('name', '%'.$key.'%')
+        ->getQuery()
+        ->getResult();
+       
+       
+        return $query; 
+    }
 }
