@@ -19,7 +19,7 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-        
+
         $repo = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Product');
@@ -30,25 +30,20 @@ class DefaultController extends Controller
         $topvente = $repo->findBy(
             array('discountStatus' => 'meilleurs ventes'));
 
-            return $this->render('default/index.html.twig',array(
-               
-              
-                'venteflash' => $venteflash,
-                'promo' => $promo,
-                'topvente' => $topvente,
+        return $this->render('default/index.html.twig',array(
+            'venteflash' => $venteflash,
+            'promo' => $promo,
+            'topvente' => $topvente,
+        ));
+    }
 
-            ));
-   }
-   
-/**
+    /**
      * @Route("/results", name="results")
      */
-   public function menuAction(Request $request)
-{   
+    public function menuAction(Request $request)
+    {
         $formBuilder = $this->createFormBuilder();
-
         $formBuilder
-
             ->add('Rechercher', SearchType::class)
 
             ->add('Categories', ChoiceType::class, array(
@@ -65,7 +60,6 @@ class DefaultController extends Controller
 
         ;
         $form = $formBuilder->getForm();
-    
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getEntityManager();
@@ -111,46 +105,35 @@ class DefaultController extends Controller
 
          {
             return $this->render('default/menu.html.twig', array(
-               
                 'form' => $form->createView(),
-
-
             ));
-            
-         }
-     }
+        }
+    }
 
-     public function memoryAction()
-     {
-            $em = $this->getDoctrine()->getEntityManager();
-            $memory = $em->getRepository('AppBundle:Memory')->findAll();
+    public function memoryAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $memory = $em->getRepository('AppBundle:Memory')->findAll();
+        return $this->render('default/memory.html.twig', array(
+            'memory' => $memory,
+        ));
+    }
 
-            return $this->render('default/memory.html.twig', array(
-               'memory' => $memory,
+    public function MotherBoardAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $motherboard = $em->getRepository('AppBundle:MotherBoard')->findAll();
+        return $this->render('default/motherboard.html.twig', array(
+            'motherboard' => $motherboard,
+        ));
+    }
 
-             ));
-     }
-
-          public function MotherBoardAction()
-     {
-            $em = $this->getDoctrine()->getEntityManager();
-            $motherboard = $em->getRepository('AppBundle:MotherBoard')->findAll();
-
-            return $this->render('default/motherboard.html.twig', array(
-               'motherboard' => $motherboard,
-
-             ));
-     }
-
-     public function cpuAction()
-     {
-            $em = $this->getDoctrine()->getEntityManager();
-            $cpu = $em->getRepository('AppBundle:Cpu')->findAll();
-
-            return $this->render('default/cpu.html.twig', array(
-               'cpu' => $cpu,
-
-             ));
-     }
-
+    public function cpuAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $cpu = $em->getRepository('AppBundle:Cpu')->findAll();
+        return $this->render('default/cpu.html.twig', array(
+            'cpu' => $cpu,
+        ));
+    }
 }

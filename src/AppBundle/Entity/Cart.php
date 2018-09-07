@@ -356,4 +356,8 @@ class Cart
     {
         return $this->paiementType;
     }
+
+    public function __toString() {
+        return $this->designation;
+    }
 }
