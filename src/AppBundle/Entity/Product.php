@@ -33,14 +33,14 @@ class Product
     /**
      * @var int
      *
-     * @ORM\Column(name="buyingPrice", type="integer", nullable=true)
+     * @ORM\Column(name="buyingPrice", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $buyingPrice;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="sellingPrice", type="integer", nullable=true)
+     * @ORM\Column(name="sellingPrice", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $sellingPrice;
 
@@ -149,7 +149,7 @@ class Product
     /**
      * Set buyingPrice
      *
-     * @param integer $buyingPrice
+     * @param float $buyingPrice
      *
      * @return Product
      */
@@ -163,7 +163,7 @@ class Product
     /**
      * Get buyingPrice
      *
-     * @return int
+     * @return float
      */
     public function getBuyingPrice()
     {
@@ -173,7 +173,7 @@ class Product
     /**
      * Set sellingPrice
      *
-     * @param integer $sellingPrice
+     * @param float $sellingPrice
      *
      * @return Product
      */
@@ -187,7 +187,7 @@ class Product
     /**
      * Get sellingPrice
      *
-     * @return int
+     * @return float
      */
     public function getSellingPrice()
     {
@@ -227,7 +227,12 @@ class Product
      */
     public function setEntryDate($entryDate)
     {
-        $this->entryDate = $entryDate;
+        if ($entryDate==null){
+            $this->entryDate = new \DateTime("now") ;
+        }else {
+            $this->entryDate=$entryDate;
+        }
+
 
         return $this;
     }
