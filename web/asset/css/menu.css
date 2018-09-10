@@ -1,0 +1,32 @@
+.bg-light {
+	background-color: #0D4F8B!important;
+	color: #FAC75A!important;
+}
+
+.search-bar {
+	display: flex;
+}
+
+form, .search-bar, .row, navbar-expand-lg{
+	width: 100%
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #FAC75A!important;
+	width: 100%;
+}
+.navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.nav-lien {
+	padding-left: 10px!important;
+	padding-right: 10px!important;
+}
+    
+
+/*@media (max-width: 991px) {
+	.collapse {
+	display : show!important;
+}
+}*/

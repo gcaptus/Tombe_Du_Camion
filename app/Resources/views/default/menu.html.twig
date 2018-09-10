@@ -1,18 +1,20 @@
 
-{% block body %}
+{% block head %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">  
-        <div class="row col-6">
-            <div class="collapse navbar-collapse col" id="navbarSupportedContent" >
-                  <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
-                 {{ form_start(form, { 'attr': {'action': path('results')} }) }}
-                {{ form_widget(form) }}
-                {{ form_end(form) }}
-            
-                </div>
-                <ul class="navbar-nav">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">  
+		<div class="row">
+			<div class="navbar-collapse col" id="navbarSupportedContent" >
+				<div class="search-bar"><a class="navbar-brand" href="/"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+				{{ form_start(form, { 'attr': {'action': path('results')} }) }}
+				{{ form_widget(form) }}
+				{{ form_end(form) }}
+				</div>
+			</div>
+			
+			
+			<ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-lien" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Compte
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,7 +38,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-lien" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Mon panier
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,30 +48,23 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse col" id="navbarCategories">
-                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CONFIGURATOR</a>
+                        <a class="nav-link nav-lien" href="#">CONFIGURATOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('cpu') }}">Processeur</a>
+                        <a class="nav-link nav-lien" href="{{ path('cpu') }}">Processeur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('motherboard') }}">Carte mère</a>
+                        <a class="nav-link nav-lien" href="{{ path('motherboard') }}">Carte mère</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('memory') }}">Mémoire</a>
+                        <a class="nav-link nav-lien" href="{{ path('memory') }}">Mémoire</a>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
 
-{% endblock %}
-{% block stylesheets %}
-    <style>
 
-    </style>
+
+
+		</nav>
 {% endblock %}
